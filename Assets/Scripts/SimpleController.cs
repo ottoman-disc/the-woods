@@ -48,14 +48,14 @@ public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
     // IPunObservable Methods
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(color);
-        }
-        else
-        {
-            this.color = (Color)stream.ReceiveNext();
-        }
+        // if (stream.IsWriting)
+        // {
+        //     stream.SendNext(this.color.r);
+        // }
+        // else
+        // {
+        //     this.color = (Color)stream.ReceiveNext();
+        // }
     }
 
     public void OnMove(InputAction.CallbackContext context)
