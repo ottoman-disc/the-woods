@@ -4,7 +4,7 @@ using UnityEngine.U2D;
 
 // DEPRECATED
 // Here, we have Input management and Movement logic all in one script. This is no good, as we might want other inputs to drive movement, like AI for example
-// Instead we have a PlayerController and Motor
+// Instead we'll use a PlayerController and Motor
 public class SimpleController : MonoBehaviour
 {
     private PlayerInputActions _inputActions;

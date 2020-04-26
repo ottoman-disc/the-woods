@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Motor : MonoBehaviour
 {
@@ -13,9 +14,7 @@ public class Motor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //_rb.velocity = _direction * 10;
-
-        _rb.MovePosition(_rb.position + _direction * 10 * Time.fixedDeltaTime);
+        _rb.velocity = _direction * 10;
     }
 
     public void Move(Vector2 direction)
