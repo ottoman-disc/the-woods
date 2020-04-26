@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Motor))]
 public class PlayerController : MonoBehaviour
 {
     private PlayerInputActions _inputActions;
