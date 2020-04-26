@@ -29,8 +29,6 @@ public class SimpleController : MonoBehaviour
     {
         float frameRateScaler = 10 * Time.deltaTime;
         _transform.position += new Vector3(_direction.x, _direction.y, 0) * frameRateScaler;
-
-        _transform.right = new Vector3(_direction.x, _direction.y, 0) - _transform.position;
     }
 
     public void OnMove(InputAction.CallbackContext context)
