@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 274100973}
   - component: {fileID: 274100972}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Player_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 1608479758}
   - component: {fileID: 1608479752}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_Physics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,8 +653,8 @@ GameObject:
   - component: {fileID: 2030492178}
   - component: {fileID: 2030492177}
   - component: {fileID: 2030492176}
-  - component: {fileID: 2030492179}
   - component: {fileID: 2030492180}
+  - component: {fileID: 2030492179}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
