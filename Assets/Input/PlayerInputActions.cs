@@ -202,6 +202,52 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Debug"",
+            ""id"": ""a0e8530b-918e-4b90-b699-657700382a16"",
+            ""actions"": [
+                {
+                    ""name"": ""Bomb"",
+                    ""type"": ""Value"",
+                    ""id"": ""10caa5a9-5d72-4625-9a73-abf769e06479"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Move Mouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""3be01261-c2dd-40ec-9c2f-c4280c8f2cf1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5a6d3d3d-9ce7-410e-819d-7c0c0c7af5a6"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aedeea89-0462-4b2a-bfa3-c97e12e5a665"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -210,6 +256,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Attack = m_Game.FindAction("Attack", throwIfNotFound: true);
         m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
+        // Debug
+        m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
+        m_Debug_Bomb = m_Debug.FindAction("Bomb", throwIfNotFound: true);
+        m_Debug_MoveMouse = m_Debug.FindAction("Move Mouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -296,9 +346,55 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public GameActions @Game => new GameActions(this);
+
+    // Debug
+    private readonly InputActionMap m_Debug;
+    private IDebugActions m_DebugActionsCallbackInterface;
+    private readonly InputAction m_Debug_Bomb;
+    private readonly InputAction m_Debug_MoveMouse;
+    public struct DebugActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public DebugActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Bomb => m_Wrapper.m_Debug_Bomb;
+        public InputAction @MoveMouse => m_Wrapper.m_Debug_MoveMouse;
+        public InputActionMap Get() { return m_Wrapper.m_Debug; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DebugActions set) { return set.Get(); }
+        public void SetCallbacks(IDebugActions instance)
+        {
+            if (m_Wrapper.m_DebugActionsCallbackInterface != null)
+            {
+                @Bomb.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnBomb;
+                @Bomb.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnBomb;
+                @Bomb.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnBomb;
+                @MoveMouse.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnMoveMouse;
+                @MoveMouse.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnMoveMouse;
+                @MoveMouse.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnMoveMouse;
+            }
+            m_Wrapper.m_DebugActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Bomb.started += instance.OnBomb;
+                @Bomb.performed += instance.OnBomb;
+                @Bomb.canceled += instance.OnBomb;
+                @MoveMouse.started += instance.OnMoveMouse;
+                @MoveMouse.performed += instance.OnMoveMouse;
+                @MoveMouse.canceled += instance.OnMoveMouse;
+            }
+        }
+    }
+    public DebugActions @Debug => new DebugActions(this);
     public interface IGameActions
     {
         void OnAttack(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IDebugActions
+    {
+        void OnBomb(InputAction.CallbackContext context);
+        void OnMoveMouse(InputAction.CallbackContext context);
     }
 }
