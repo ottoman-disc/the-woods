@@ -4,35 +4,40 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Motor))]
 public class PlayerController : MonoBehaviour
 {
-    private PlayerInputActions _inputActions;
+    private PlayerInputActions inputActions;
 
-    private Motor _moter;
+    private Motor moter;
 
     private void Awake()
     {
-        _inputActions = new PlayerInputActions();
+        inputActions = new PlayerInputActions();
 
-        _moter = GetComponent<Motor>();
+        moter = GetComponent<Motor>();
     }
 
     private void OnEnable()
     {
-        _inputActions.Game.Enable();
+        inputActions.Game.Enable();
 
-        _inputActions.Game.Move.performed += OnMove;
-        _inputActions.Game.Move.canceled += OnMove;
+        inputActions.Game.Move.performed += OnMove;
+        inputActions.Game.Move.canceled += OnMoveStop;
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
-        _moter.Move(context.ReadValue<Vector2>());
+        moter.Move(context.ReadValue<Vector2>());
+    }
+
+    private void OnMoveStop(InputAction.CallbackContext context)
+    {
+        moter.Stop();
     }
 
     private void OnDisable()
     {
-        _inputActions.Game.Move.canceled -= OnMove;
-        _inputActions.Game.Move.performed -= OnMove;
+        inputActions.Game.Move.canceled -= OnMoveStop;
+        inputActions.Game.Move.performed -= OnMove;
 
-        _inputActions.Game.Disable();
+        inputActions.Game.Disable();
     }
 }
