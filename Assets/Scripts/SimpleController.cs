@@ -9,6 +9,7 @@ public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
 
     private Transform _transform;
     private Vector2 _direction;
+    public Vector3 screenPosition;
     private Color color = new Color(.5f,.5f,.5f);
 
     private void Awake()
@@ -29,6 +30,11 @@ public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
         _inputActions.Game.Attack.performed += OnAttack;
     }
 
+    void OnGUI()
+    {
+        GUI.Label(new Rect(screenPosition.x, screenPosition.y, 100, 20), PhotonNetwork.NickName);
+    }
+
     private void Update()
     {
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
@@ -43,6 +49,10 @@ public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
         // update color
         Material mat = GetComponent<SpriteShapeRenderer>().material;
         if (mat != null) mat.color = this.color;
+
+        screenPosition = Camera.main.WorldToScreenPoint(this.transform.position);
+        screenPosition.y = Screen.height - screenPosition.y;
+
     }
 
     // IPunObservable Methods
