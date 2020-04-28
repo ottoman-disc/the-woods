@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: e2cf15adab35a62428ec943bdb3e039a
   - enabled: 1
-    path: Assets/Scenes/StartingArea.unity
-    guid: 945c3e7b3dfe5244c9545bee8ff75bcb
+    path: Assets/Scenes/Testing/Input-sm.unity
+    guid: 25d43a7f25c1b494a922e8b909952247
   m_configObjects: {}
