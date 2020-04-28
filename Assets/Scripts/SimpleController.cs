@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 using Photon.Pun;
 
-public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
+public class SimpleController : MonoBehaviourPunCallbacks
 {
     private PlayerInputActions _inputActions;
 
     private Transform _transform;
     private Vector2 _direction;
     public Vector3 screenPosition;
+    private Health _health;
+    public Image healthBar;
     private Color color = new Color(.5f,.5f,.5f);
 
     private void Awake()
     {
         _inputActions = new PlayerInputActions();
-
         _transform = this.transform;
+        _health = GetComponent<Health>();
     }
 
     private void OnEnable()
@@ -30,9 +33,17 @@ public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
         _inputActions.Game.Attack.performed += OnAttack;
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
         GUI.Label(new Rect(screenPosition.x, screenPosition.y, 100, 20), PhotonNetwork.NickName);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("HIT");
+        
+        _health.CurrentHealth = _health.CurrentHealth - .05f;
+        healthBar.fillAmount = _health.CurrentHealth;
     }
 
     private void Update()
@@ -53,19 +64,6 @@ public class SimpleController : MonoBehaviourPunCallbacks, IPunObservable
         screenPosition = Camera.main.WorldToScreenPoint(this.transform.position);
         screenPosition.y = Screen.height - screenPosition.y;
 
-    }
-
-    // IPunObservable Methods
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        // if (stream.IsWriting)
-        // {
-        //     stream.SendNext(this.color.r);
-        // }
-        // else
-        // {
-        //     this.color = (Color)stream.ReceiveNext();
-        // }
     }
 
     public void OnMove(InputAction.CallbackContext context)
