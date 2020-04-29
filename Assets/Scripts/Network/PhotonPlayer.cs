@@ -1,7 +1,7 @@
 ﻿using Cinemachine;
 using Photon.Pun;
 
-public class PhotonPlayerView : MonoBehaviourPun
+public class PhotonPlayer : MonoBehaviourPun
 {
     private void Start()
     {

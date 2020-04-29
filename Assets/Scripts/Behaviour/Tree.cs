@@ -1,5 +1,4 @@
-﻿using Photon.Pun;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.U2D;
 
 public class Tree : PhotonSharedObject, IInteractable
