@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using Photon.Pun;
 
-public class PhotonSharedObject : MonoBehaviour, ITransferable
+public class PhotonSharedObject : MonoBehaviour
 {
-    public void Take(PhotonView taker)
+    public void Take(GameObject taker)
     {
+        if (!taker.GetComponent<PhotonView>().IsMine) return;
+
         PhotonView pv = this.GetComponent<PhotonView>();
 
         pv.RequestOwnership();

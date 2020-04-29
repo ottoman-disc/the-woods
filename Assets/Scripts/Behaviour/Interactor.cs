@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
-using Photon.Pun;
 
 public class Interactor : MonoBehaviour
 {
-    public bool isLocal;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IInteractable interactable = collision.collider.GetComponent<IInteractable>();
-        if (interactable != null) interactable.Interact(this.gameObject);
+        Collider2D col = collision.collider;
+
+        IInteractable interactable = col.GetComponent<IInteractable>();
+        if (interactable != null) interactable.Interact();
+
+        PhotonSharedObject photonSharedObject = col.GetComponent<PhotonSharedObject>();
+        if (photonSharedObject != null) photonSharedObject.Take(this.gameObject);
     }
 }
