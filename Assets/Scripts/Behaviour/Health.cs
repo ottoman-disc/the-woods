@@ -29,6 +29,11 @@ namespace OttomanDisc
             UpdateHealthBar();
         }
 
+        private void Update()
+        {
+            UpdateHealthBar();
+        }
+
         public void DamageReceived(IDamage damage)
         {
             if (! photonView.IsMine)
@@ -38,7 +43,6 @@ namespace OttomanDisc
 
             _health -= damage.Damage;
             Debug.LogFormat("Damage {0}, Health = {1}", damage.Damage, _health);
-            UpdateHealthBar();
         }
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
