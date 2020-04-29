@@ -1,5 +1,5 @@
-﻿using Photon.Pun;
-using UnityEngine;
+﻿using Cinemachine;
+using Photon.Pun;
 
 public class PhotonPlayerView : MonoBehaviourPun
 {
@@ -14,14 +14,12 @@ public class PhotonPlayerView : MonoBehaviourPun
             Destroy(GetComponent<PlayerController>());
             Destroy(GetComponent<Motor>());
 
-            // Remote player does not need a Camera, or AudioListener, so we simply
-            // search for the Object with the Camera, and delete it entirely since
-            // it also has the AudioListener attached.
-            Destroy(GetComponentInChildren<Camera>().gameObject);
-
+            // Remote player should not have a Cinemachine Virtual Camera,
+            // since we only want one camera in the scene
+            Destroy(GetComponent<CinemachineVirtualCamera>().gameObject);
         }
 
-        // This componenet has now doen its job, so we can also Destroy it
+        // This componenet has now done its job, so we can also Destroy it
         Destroy(this);
     }
 }
