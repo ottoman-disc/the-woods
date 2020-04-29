@@ -9,6 +9,6 @@ public class PhotonPlayerView : MonoBehaviourPun
     {
         if (!PhotonNetwork.IsConnected) return;
 
-        if (!photonView.IsMine) DestroyImmediate(GetComponent<PlayerController>());
+        if (!photonView.IsMine) Destroy(GetComponent<PlayerController>());
     }
 }
