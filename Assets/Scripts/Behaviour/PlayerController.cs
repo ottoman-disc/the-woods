@@ -1,43 +1,46 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Motor))]
-public class PlayerController : MonoBehaviour
+namespace OttomanDisc
 {
-    private PlayerInputActions inputActions;
-
-    private Motor moter;
-
-    private void Awake()
+    [RequireComponent(typeof(Motor))]
+    public class PlayerController : MonoBehaviour
     {
-        inputActions = new PlayerInputActions();
+        private PlayerInputActions inputActions;
 
-        moter = GetComponent<Motor>();
-    }
+        private Motor moter;
 
-    private void OnEnable()
-    {
-        inputActions.Game.Enable();
+        private void Awake()
+        {
+            inputActions = new PlayerInputActions();
 
-        inputActions.Game.Move.performed += OnMove;
-        inputActions.Game.Move.canceled += OnMoveStop;
-    }
+            moter = GetComponent<Motor>();
+        }
 
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        moter.Move(context.ReadValue<Vector2>());
-    }
+        private void OnEnable()
+        {
+            inputActions.Game.Enable();
 
-    private void OnMoveStop(InputAction.CallbackContext context)
-    {
-        moter.Stop();
-    }
+            inputActions.Game.Move.performed += OnMove;
+            inputActions.Game.Move.canceled += OnMoveStop;
+        }
 
-    private void OnDisable()
-    {
-        inputActions.Game.Move.canceled -= OnMoveStop;
-        inputActions.Game.Move.performed -= OnMove;
+        private void OnMove(InputAction.CallbackContext context)
+        {
+            moter.Move(context.ReadValue<Vector2>());
+        }
 
-        inputActions.Game.Disable();
+        private void OnMoveStop(InputAction.CallbackContext context)
+        {
+            moter.Stop();
+        }
+
+        private void OnDisable()
+        {
+            inputActions.Game.Move.canceled -= OnMoveStop;
+            inputActions.Game.Move.performed -= OnMove;
+
+            inputActions.Game.Disable();
+        }
     }
 }

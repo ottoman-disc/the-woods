@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-// This behaviour is, at this point, really just for testing - we don't currently know
-// what 'interacting' is going to look like at this point
-public class Interactor : MonoBehaviour
+namespace OttomanDisc
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    // This behaviour is, at this point, really just for testing - we don't currently know
+    // what 'interacting' is going to look like at this point
+    public class Interactor : MonoBehaviour
     {
-        Collider2D col = collision.collider;
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Collider2D col = collision.collider;
 
-        IInteractable interactable = col.GetComponent<IInteractable>();
-        if (interactable != null) interactable.Interact();
+            IInteractable interactable = col.GetComponent<IInteractable>();
+            if (interactable != null) interactable.Interact();
+        }
     }
 }

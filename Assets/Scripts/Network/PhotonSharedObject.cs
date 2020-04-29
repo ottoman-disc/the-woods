@@ -1,14 +1,18 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-public class PhotonSharedObject : MonoBehaviour
+namespace OttomanDisc
 {
-    public void Take(GameObject taker)
+    public class PhotonSharedObject : MonoBehaviour
     {
-        if (!taker.GetComponent<PhotonView>().IsMine) return;
+        public void Take(GameObject taker)
+        {
+            if (!taker.GetComponent<PhotonView>().IsMine) return;
 
-        PhotonView pv = this.GetComponent<PhotonView>();
+            this.name = "OWNED BY " + taker.name;
 
-        pv.RequestOwnership();
+            PhotonView pv = this.GetComponent<PhotonView>();
+            pv.RequestOwnership();
+        }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace OttomanDisc
 {
+    public class Player : MonoBehaviour
+    {
 
+    }
 }

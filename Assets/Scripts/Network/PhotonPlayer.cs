@@ -1,25 +1,28 @@
 ﻿using Cinemachine;
 using Photon.Pun;
 
-public class PhotonPlayer : MonoBehaviourPun
+namespace OttomanDisc
 {
-    private void Start()
+    public class PhotonPlayer : MonoBehaviourPun
     {
-        if (!PhotonNetwork.IsConnected) return;
-
-        if (!photonView.IsMine)
+        private void Start()
         {
-            // Remote player does not need a Controller or Motor. Movement driven
-            // by them locally, and synced to us.
-            Destroy(GetComponent<PlayerController>());
-            Destroy(GetComponent<Motor>());
+            if (!PhotonNetwork.IsConnected) return;
 
-            // Remote player should not have a Cinemachine Virtual Camera,
-            // since we only want one camera in the scene
-            Destroy(GetComponentInChildren<CinemachineVirtualCamera>().gameObject);
+            if (!photonView.IsMine)
+            {
+                // Remote player does not need a Controller or Motor. Movement driven
+                // by them locally, and synced to us.
+                Destroy(GetComponent<PlayerController>());
+                Destroy(GetComponent<Motor>());
+
+                // Remote player should not have a Cinemachine Virtual Camera,
+                // since we only want one camera in the scene
+                Destroy(GetComponentInChildren<CinemachineVirtualCamera>().gameObject);
+            }
+
+            // This componenet has now done its job, so we can also Destroy it
+            Destroy(this);
         }
-
-        // This componenet has now done its job, so we can also Destroy it
-        Destroy(this);
     }
 }
