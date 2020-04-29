@@ -16,6 +16,9 @@ namespace OttomanDisc
 
         [SerializeField]
         private Image _healthBar;
+
+        [SerializeField]
+        private Text _healthText;
         private int _health; // the current health
         private float _healthPercent; // the current health% expressed as a float
 
@@ -52,6 +55,11 @@ namespace OttomanDisc
             {
                 _healthBar.fillAmount = _healthPercent;
             }
+            if (_healthText != null)
+            {
+                _healthText.text = _health.ToString();
+            }
+
         }
     }
 }

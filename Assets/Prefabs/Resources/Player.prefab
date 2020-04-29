@@ -414,6 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 200
   _healthBar: {fileID: 3946598737667906762}
+  _healthText: {fileID: 6000029092990381329}
 --- !u!1 &5868123675133876083
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,5 +617,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6000029092990381329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6599543227361616050, guid: 8756b3150df64964486fdca4db9086f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 635617994835889571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
