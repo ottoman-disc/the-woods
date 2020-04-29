@@ -19,6 +19,8 @@ namespace OttomanDisk
         [SerializeField]
         private GameObject statusText;
 
+        [SerializeField] private string gameScene = "Input-sm";
+
         // MonoBehaviour Callbacks
         void Awake()
         {
@@ -60,7 +62,7 @@ namespace OttomanDisk
         public override void OnJoinedRoom()
         {
             Debug.Log("Joined room");
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel(gameScene);
         }
 
         // Other Methods
