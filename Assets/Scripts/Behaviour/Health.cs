@@ -9,7 +9,7 @@ namespace OttomanDisc
     // Convenience class for managing networked health of game objects. 
     // Add this script to a object along with a PhotonView component and hook this
     // script up as an observed component
-    public class Health : MonoBehaviourPunCallbacks, IPunObservable, IDamageable
+    public class Health : MonoBehaviourPun, IPunObservable, IDamageable
     {
         [SerializeField]
         private int _maxHealth = 200; // the maximum/startng health
@@ -31,6 +31,11 @@ namespace OttomanDisc
 
         public void DamageReceived(IDamage damage)
         {
+            if (! photonView.IsMine)
+            {
+                return;
+            }
+
             _health -= damage.Damage;
             Debug.LogFormat("Damage {0}, Health = {1}", damage.Damage, _health);
             UpdateHealthBar();
