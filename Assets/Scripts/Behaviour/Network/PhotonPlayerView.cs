@@ -16,7 +16,7 @@ public class PhotonPlayerView : MonoBehaviourPun
 
             // Remote player should not have a Cinemachine Virtual Camera,
             // since we only want one camera in the scene
-            Destroy(GetComponent<CinemachineVirtualCamera>().gameObject);
+            Destroy(GetComponentInChildren<CinemachineVirtualCamera>().gameObject);
         }
 
         // This componenet has now done its job, so we can also Destroy it
