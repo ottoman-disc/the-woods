@@ -14,11 +14,12 @@ GameObject:
   - component: {fileID: 3475941258651131425}
   - component: {fileID: 3475941258651131426}
   - component: {fileID: 3475941258651131427}
-  - component: {fileID: 3475941258651131428}
-  - component: {fileID: 3475941258651131429}
   - component: {fileID: 3475941258651131430}
+  - component: {fileID: 3475941258651131429}
+  - component: {fileID: 3475941258651131428}
   - component: {fileID: -1954248051722564452}
   - component: {fileID: 8751250172036230343}
+  - component: {fileID: 5836213357276492592}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b5ffb0d1feace4191bcfc474cb41a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3475941258651131428
+--- !u!114 &3475941258651131430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,7 +221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3475941258651131431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4038e2e1906454f47a7bb5534b8ab7d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 937cf19262e56cb4498fe75b7f6398fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3475941258651131429
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59051a2501b967842ad430dddaf84f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3475941258651131430
+--- !u!114 &3475941258651131428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3475941258651131431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 937cf19262e56cb4498fe75b7f6398fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4038e2e1906454f47a7bb5534b8ab7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-1954248051722564452
@@ -285,3 +286,16 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &5836213357276492592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475941258651131431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca5b8543d4c8d84da8cd9ce4bb97aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 3475941258651131427}
