@@ -5,12 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class PhotonPlayerView : MonoBehaviourPun
 {
-    [SerializeField] PlayerController playerController;
-
     private void Start()
     {
         if (!PhotonNetwork.IsConnected) return;
 
-        if (!photonView.IsMine) DestroyImmediate(playerController);
+        if (!photonView.IsMine) DestroyImmediate(GetComponent<PlayerController>());
     }
 }
