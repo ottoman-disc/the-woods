@@ -1,24 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
-// Convenience class for managing networked health of game objects. 
-// Add this script to a object along with a PhotonView component and hook this
-// script up as an observed component
-public class Health : MonoBehaviourPunCallbacks, IPunObservable
+namespace OttomanDisc
 {
-    public float CurrentHealth {get; set; } = 1f;
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    // Convenience class for managing networked health of game objects. 
+    // Add this script to a object along with a PhotonView component and hook this
+    // script up as an observed component
+    public class Health : MonoBehaviourPunCallbacks, IPunObservable, IDamageable
     {
-        if (stream.IsWriting)
+        [SerializeField]
+        private int _maxHealth = 200; // the maximum/startng health
+
+        [SerializeField]
+        private Image _healthBar;
+        private int _health; // the current health
+        private float _healthPercent; // the current health% expressed as a float
+
+
+        private void Awake()
         {
-            stream.SendNext(this.CurrentHealth);
+            _health = _maxHealth;
+            UpdateHealthBar();
         }
-        else
+
+        public void DamageReceived(IDamage damage)
         {
-            this.CurrentHealth = (float)stream.ReceiveNext();
+            _health -= damage.Damage;
+            UpdateHealthBar();
+        }
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            if (stream.IsWriting)
+            {
+                stream.SendNext(this._health);
+            }
+            else
+            {
+                this._health = (int)stream.ReceiveNext();
+            }
+        }
+
+        private void UpdateHealthBar()
+        {
+            _healthPercent = (float)_health / (float)_maxHealth;
+            if (_healthBar != null)
+            {
+                _healthBar.fillAmount = _healthPercent;
+            }
         }
     }
 }

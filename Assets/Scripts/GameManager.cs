@@ -21,7 +21,7 @@ namespace OttomanDisk
             else 
             {
                 Debug.Log("Instantiating local player");
-                PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(1f,2f,0f), Quaternion.identity, 0);
+                //PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(1f,2f,0f), Quaternion.identity, 0);
             }
         }
 
