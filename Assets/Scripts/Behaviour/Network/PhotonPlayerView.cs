@@ -1,8 +1,6 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-[RequireComponent(typeof(PhotonView))]
-[RequireComponent(typeof(PlayerController))]
 public class PhotonPlayerView : MonoBehaviourPun
 {
     private void Start()
