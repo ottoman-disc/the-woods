@@ -12,5 +12,10 @@ public class MenuSceneLoader
     [MenuItem("Scene/Game")] 
     private static void Game() => OpenScene(GameScene);
 
-    private static void OpenScene(string scene) => EditorSceneManager.OpenScene(scene);
+    private static void OpenScene(string scene)
+    {
+        EditorSceneManager.SaveOpenScenes();
+        EditorSceneManager.OpenScene(scene);
+    }
+
 }
