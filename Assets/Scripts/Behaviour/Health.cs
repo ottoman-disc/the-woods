@@ -29,6 +29,7 @@ namespace OttomanDisc
         public void DamageReceived(IDamage damage)
         {
             _health -= damage.Damage;
+            Debug.LogFormat("Damage {0}, Health = {1}", damage.Damage, _health);
             UpdateHealthBar();
         }
 
