@@ -11,6 +11,10 @@ public class PhotonPlayerView : MonoBehaviourPun
         {
             Destroy(GetComponent<PlayerController>());
             Destroy(GetComponent<Motor>());
+            
+            Destroy(GetComponentInChildren<Camera>());
+
+            Destroy(this);
         }
     }
 }
