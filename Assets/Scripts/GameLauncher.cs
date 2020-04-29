@@ -60,7 +60,7 @@ namespace OttomanDisk
         public override void OnJoinedRoom()
         {
             Debug.Log("Joined room");
-            PhotonNetwork.LoadLevel(2);
+            PhotonNetwork.LoadLevel(1);
         }
 
         // Other Methods
