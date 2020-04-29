@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
 
 public interface ITransferable
 {
-    void Transfer();
+    void Take(PhotonView taker);
 }
