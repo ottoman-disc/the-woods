@@ -18,8 +18,10 @@ namespace OttomanDisc
 
             if (!taker.GetComponent<PhotonView>().IsMine) return;
 
-            PhotonView pv = this.GetComponent<PhotonView>();
-            pv.RequestOwnership();
+           // PhotonView pv = this.GetComponent<PhotonView>();
+            //pv.RequestOwnership();
+
+            taker.GetComponent<PhotonView>().ObservedComponents.Add(this.GetComponent<PhotonTransformView>());
         }
     }
 }
