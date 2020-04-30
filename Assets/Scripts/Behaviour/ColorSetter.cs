@@ -3,6 +3,7 @@ using UnityEngine.U2D;
 
 namespace OttomanDisc
 {
+    [RequireComponent(typeof(SpriteShapeRenderer))]
     public class ColorSetter : MonoBehaviour
     {
         public delegate void SetColorAction(Color color);

@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace OttomanDisc
 {
+    [RequireComponent(typeof(PhotonView))]
     public class PhotonSharedObject : MonoBehaviour
     {
         string originalName;
