@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.U2D;
 
 namespace OttomanDisc
 {
@@ -9,7 +8,9 @@ namespace OttomanDisc
 
         public void Interact()
         {
-            GetComponent<SpriteShapeRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+            ColorSetter colorSetter = this.GetComponent<ColorSetter>();
+            if (colorSetter != null)
+                colorSetter.SetColorAndBroadcast(new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

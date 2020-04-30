@@ -9,12 +9,19 @@ namespace OttomanDisc
         {
             if (!PhotonNetwork.IsConnected) return;
 
-            if (!photonView.IsMine)
+            if (photonView.IsMine)
             {
+                this.name = "PLAYER: LOCAL";
+            }
+            else
+            {
+                this.name = "PLAYER: REMOTE";
+
                 // Remote player does not need a Controller or Motor. Movement driven
                 // by them locally, and synced to us.
                 Destroy(GetComponent<PlayerController>());
                 Destroy(GetComponent<Motor>());
+                Destroy(GetComponent<Interactor>());
 
                 // Remote player should not have a Cinemachine Virtual Camera,
                 // since we only want one camera in the scene

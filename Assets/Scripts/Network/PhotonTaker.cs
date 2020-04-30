@@ -2,7 +2,6 @@
 
 namespace OttomanDisc
 {
-    [RequireComponent(typeof(Player))]
     public class PhotonTaker : MonoBehaviour
     {
         private void OnCollisionEnter2D(Collision2D collision)

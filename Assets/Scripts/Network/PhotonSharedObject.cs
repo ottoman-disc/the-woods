@@ -3,13 +3,21 @@ using UnityEngine;
 
 namespace OttomanDisc
 {
+    [RequireComponent(typeof(PhotonView))]
     public class PhotonSharedObject : MonoBehaviour
     {
+        string originalName;
+
+        private void Start()
+        {
+            originalName = this.name;
+        }
+
         public void Take(GameObject taker)
         {
-            if (!taker.GetComponent<PhotonView>().IsMine) return;
+            this.name = originalName + " [" + taker.name + "]";
 
-            this.name = "OWNED BY " + taker.name;
+            if (!taker.GetComponent<PhotonView>().IsMine) return;
 
             PhotonView pv = this.GetComponent<PhotonView>();
             pv.RequestOwnership();
