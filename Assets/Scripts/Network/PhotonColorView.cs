@@ -18,6 +18,8 @@ namespace OttomanDisc
         private void OnEnable()
         {
             cs.OnSetColor += SendColor;
+
+            if (!PhotonNetwork.IsConnected) Destroy(this);
         }
 
         private void SendColor(Color color)

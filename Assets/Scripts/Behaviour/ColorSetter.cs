@@ -12,7 +12,7 @@ namespace OttomanDisc
         public void SetColorAndBroadcast(Color color)
         {
             SetColor(color);
-            OnSetColor(color);
+            OnSetColor?.Invoke(color);
         }
 
         public void SetColor(Color color)
