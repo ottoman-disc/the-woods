@@ -8,10 +8,15 @@ namespace OttomanDisc
         public delegate void SetColorAction(Color color);
         public event SetColorAction OnSetColor;
 
+        public void SetColorAndBroadcast(Color color)
+        {
+            SetColor(color);
+            OnSetColor(color);
+        }
+
         public void SetColor(Color color)
         {
             this.GetComponent<SpriteShapeRenderer>().material.color = color;
-            OnSetColor(color);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace OttomanDisc
 
         public void Interact()
         {
-            this.GetComponent<ColorSetter>().SetColor(new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));
+            this.GetComponent<ColorSetter>().SetColorAndBroadcast(new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
