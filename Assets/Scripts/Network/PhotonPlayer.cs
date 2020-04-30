@@ -21,6 +21,7 @@ namespace OttomanDisc
                 // by them locally, and synced to us.
                 Destroy(GetComponent<PlayerController>());
                 Destroy(GetComponent<Motor>());
+                Destroy(GetComponent<Interactor>());
 
                 // Remote player should not have a Cinemachine Virtual Camera,
                 // since we only want one camera in the scene
