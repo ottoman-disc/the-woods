@@ -23,7 +23,7 @@ namespace OttomanDisc
         private void SendColor(Color color)
         {
             float[] colorInfo = { color.r, color.g, color.b };
-            pv.RPC(nameof(RecieveColor), RpcTarget.Others, colorInfo);
+            pv.RPC(nameof(RecieveColor), RpcTarget.OthersBuffered, colorInfo);
         }
 
         [PunRPC]
