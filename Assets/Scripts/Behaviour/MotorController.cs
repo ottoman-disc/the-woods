@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace OttomanDisc
 {
     [RequireComponent(typeof(Motor))]
-    public class PlayerController : MonoBehaviour
+    public class MotorController : MonoBehaviour
     {
         private PlayerInputActions inputActions;
 

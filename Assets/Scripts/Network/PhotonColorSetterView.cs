@@ -4,7 +4,8 @@ using UnityEngine;
 namespace OttomanDisc
 {
     [RequireComponent(typeof(PhotonView))]
-    public class PhotonColorView : MonoBehaviour
+    [RequireComponent(typeof(ColorSetter))]
+    public class PhotonColorSetterView : MonoBehaviour
     {
         PhotonView pv;
         ColorSetter cs;
