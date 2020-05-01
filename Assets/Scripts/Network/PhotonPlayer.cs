@@ -19,12 +19,11 @@ namespace OttomanDisc
 
                 // Remote player does not need a Controller or Motor. Movement driven
                 // by them locally, and synced to us.
-                Destroy(GetComponent<PlayerController>());
+                Destroy(GetComponent<MotorController>());
                 Destroy(GetComponent<Motor>());
                 Destroy(GetComponent<Interactor>());
 
-                // Remote player should not have a Cinemachine Virtual Camera,
-                // since we only want one camera in the scene
+                // Remote player should not have a Cinemachine Virtual Camera
                 Destroy(GetComponentInChildren<CinemachineVirtualCamera>().gameObject);
             }
 
