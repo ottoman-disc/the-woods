@@ -2,23 +2,25 @@
 
 namespace OttomanDisc
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class Motor : MonoBehaviour
     {
-        private Rigidbody2D _rb;
-        private Vector2 _direction;
+        private Rigidbody _rb;
+        private Vector3 _direction;
         private bool moving = false;
+        private const int speed = 2;
 
         private void Awake()
         {
-            _rb = this.GetComponent<Rigidbody2D>();
+            _rb = this.GetComponent<Rigidbody>();
         }
 
         private void FixedUpdate()
         {
-            if (moving) _rb.velocity = _direction * 10;
+            if (moving) _rb.velocity = _direction * speed;
         }
 
-        public void Move(Vector2 direction)
+        public void Move(Vector3 direction)
         {
             _rb.drag = 0f;
             _direction = direction;
