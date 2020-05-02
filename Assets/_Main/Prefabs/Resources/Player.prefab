@@ -125,7 +125,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 1012268123633605301}
-  - {fileID: 635617994835890050}
+  - {fileID: 5832643738262976621}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0000005, y: 4}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &3475941258651131426
 Rigidbody2D:
@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
-  _healthBar: {fileID: 635617994835890158}
-  _healthText: {fileID: 635617994835890162}
+  _healthBar: {fileID: 3946598737667906762}
+  _healthText: {fileID: 6000029092990381329}
 --- !u!212 &6831525630346893079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -538,13 +538,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8756b3150df64964486fdca4db9086f8, type: 3}
---- !u!224 &635617994835890050 stripped
+--- !u!224 &5832643738262976621 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6351093214666569166, guid: 8756b3150df64964486fdca4db9086f8,
     type: 3}
   m_PrefabInstance: {fileID: 635617994835889571}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &635617994835890158 stripped
+--- !u!114 &3946598737667906762 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4474055297060131177, guid: 8756b3150df64964486fdca4db9086f8,
     type: 3}
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &635617994835890162 stripped
+--- !u!114 &6000029092990381329 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6599543227361616050, guid: 8756b3150df64964486fdca4db9086f8,
     type: 3}
