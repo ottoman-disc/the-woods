@@ -9,9 +9,11 @@ namespace OttomanDisk
     public class GameLauncher : MonoBehaviourPunCallbacks
     {
         // Private fields
-        string gameVersion = "1"; // increment for breaking changes to networking
-        byte maxPlayers = 4; // define maximum allowed players in the room
-        bool userRequestedConnection; // determine if the user requested a connection
+        private string gameVersion = "1"; // increment for breaking changes to networking
+        private byte maxPlayers = 4; // define maximum allowed players in the room
+        private bool userRequestedConnection; // determine if the user requested a connection
+        private int nextSceneIndex = 1;
+
 
         [SerializeField]
         private GameObject menuPanel;
@@ -49,25 +51,27 @@ namespace OttomanDisk
             Debug.LogWarningFormat("Disconnected from PUN with reason '{0}'", cause);
         }
 
-        public override void OnJoinRandomFailed(short returnCode, string message)
-        {
-            PhotonNetwork.CreateRoom(null, new RoomOptions
-            {
-                MaxPlayers = maxPlayers
-            });
-        }
+        // public override void OnJoinRandomFailed(short returnCode, string message)
+        // {
+        //     PhotonNetwork.CreateRoom(null, new RoomOptions
+        //     {
+        //         MaxPlayers = maxPlayers
+        //     });
+        // }
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("Joined room");
-            PhotonNetwork.LoadLevel(2);
+            var roomName = PhotonNetwork.CurrentRoom.Name;
+            Debug.Log($"Joined {roomName}");
+            PhotonNetwork.LoadLevel(nextSceneIndex);
         }
 
         // Other Methods
-        public void Connect()
+        public void Connect(int sceneIndex = 1)
         {
             menuPanel.SetActive(false);
             statusText.SetActive(true);
+            nextSceneIndex = sceneIndex;
 
             if (PhotonNetwork.IsConnected)
             {
@@ -81,11 +85,15 @@ namespace OttomanDisk
             }
         }
 
+        // joins an existing room based on the nextSceneIndex
+        // room is created if not already present
         private void Join()
         {
-            // placeholder for better join logic
-            PhotonNetwork.JoinRandomRoom();
+            var roomName = $"room_{nextSceneIndex}";
+            var roomOpts = new RoomOptions{
+                MaxPlayers = maxPlayers
+            };
+            PhotonNetwork.JoinOrCreateRoom(roomName, roomOpts, TypedLobby.Default);
         }
     }
-
 }
