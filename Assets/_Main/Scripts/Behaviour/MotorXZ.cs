@@ -3,7 +3,7 @@
 namespace OttomanDisc
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class MotorXZ : MonoBehaviour
+    public class MotorXZyyyyy : MonoBehaviour
     {
         private Rigidbody _rb;
         private Vector3 _direction;
