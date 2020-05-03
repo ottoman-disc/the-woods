@@ -1,10 +1,14 @@
 ﻿using Cinemachine;
 using Photon.Pun;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace OttomanDisc
 {
     public class PhotonPlayer : MonoBehaviourPun
-    {
+    { 
+        [SerializeField] UnityEvent remotePlayerEvent;
+
         private void Start()
         {
             if (!PhotonNetwork.IsConnected) return;
@@ -17,18 +21,8 @@ namespace OttomanDisc
             {
                 this.name = "PLAYER: REMOTE";
 
-                // Remote player does not need a Controller or Motor. Movement driven
-                // by them locally, and synced to us.
-                Destroy(GetComponent<MotorController>());
-                Destroy(GetComponent<Motor>());
-                Destroy(GetComponent<Interactor>());
-
-                // Remote player should not have a Cinemachine Virtual Camera
-                Destroy(GetComponentInChildren<CinemachineVirtualCamera>().gameObject);
+                remotePlayerEvent.Invoke();
             }
-
-            // This componenet has now done its job, so we can also Destroy it
-            Destroy(this);
         }
     }
 }
