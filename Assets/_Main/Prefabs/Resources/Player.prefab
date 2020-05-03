@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: -6959269745459533515}
   - component: {fileID: 7362991770010873013}
   - component: {fileID: 6831525630346893079}
+  - component: {fileID: -7102980662298366844}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 1012268123633605301}
-  - {fileID: 5832643738262976621}
+  - {fileID: 635617994835889632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,6 +276,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca5b8543d4c8d84da8cd9ce4bb97aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  remotePlayerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7102980662298366844}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-6959269745459533515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,8 +315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
-  _healthBar: {fileID: 3946598737667906762}
-  _healthText: {fileID: 6000029092990381329}
+  _healthBar: {fileID: 635617994835889614}
+  _healthText: {fileID: 635617994835889617}
 --- !u!212 &6831525630346893079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -352,6 +367,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7102980662298366844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475941258651131431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e6efbc0d1b5476c9db8c993cdc9734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectsToDestroy:
+  - {fileID: 5868123675133876083}
+  componentsToDestroy:
+  - {fileID: 3475941258651131427}
+  - {fileID: 3475941258651131429}
+  - {fileID: 3475941258651131428}
+  - {fileID: -7102980662298366844}
 --- !u!1 &5868123675133876083
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,13 +572,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8756b3150df64964486fdca4db9086f8, type: 3}
---- !u!224 &5832643738262976621 stripped
+--- !u!224 &635617994835889632 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6351093214666569166, guid: 8756b3150df64964486fdca4db9086f8,
     type: 3}
   m_PrefabInstance: {fileID: 635617994835889571}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3946598737667906762 stripped
+--- !u!114 &635617994835889614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4474055297060131177, guid: 8756b3150df64964486fdca4db9086f8,
     type: 3}
@@ -556,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6000029092990381329 stripped
+--- !u!114 &635617994835889617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6599543227361616050, guid: 8756b3150df64964486fdca4db9086f8,
     type: 3}
