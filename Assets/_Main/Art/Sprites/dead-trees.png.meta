@@ -1,31 +1,43 @@
 fileFormatVersion: 2
-guid: fcef725338eb8944a82f78021759d807
+guid: b89dd16e2fd85a547a92e4840b759adc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5451196776826998619
-    second: grass-short-1_0
+      213: -7792010341993460291
+    second: dead-trees_0
   - first:
-      213: -7464152887150085909
-    second: grass-short-1_1
+      213: 4182431266088416721
+    second: dead-trees_1
   - first:
-      213: 7587206090859351055
-    second: grass-short-1_2
+      213: -2744541307709974806
+    second: dead-trees_2
   - first:
-      213: -7522987678551726415
-    second: grass-short-1_3
+      213: 6084935958376458420
+    second: dead-trees_3
   - first:
-      213: -5763932494794432060
-    second: grass-short-1_4
+      213: -8126308798503370072
+    second: dead-trees_4
   - first:
-      213: 7943997994836578610
-    second: grass-short-1_5
+      213: 2464676895285702241
+    second: dead-trees_0
   - first:
-      213: -8212737348540707117
-    second: grass-short-1_6
+      213: 3819868267827592721
+    second: dead-trees_1
   - first:
-      213: 3618527018766350145
-    second: grass-short-1_7
+      213: 7211542852734385926
+    second: dead-trees_2
+  - first:
+      213: -6594943199979069912
+    second: dead-trees_3
+  - first:
+      213: 3701571147355431376
+    second: dead-trees_4
+  - first:
+      213: 3361181234158952199
+    second: dead-trees_5
+  - first:
+      213: 6580649854330437234
+    second: dead-trees_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -88,7 +100,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +112,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grass-short-1_0
+      name: dead-trees_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 7
-        height: 4
+        width: 32
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5f078b369a86ab40800000000000000
-      internalID: 5451196776826998619
+      spriteID: 16eed9de39a443220800000000000000
+      internalID: 2464676895285702241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass-short-1_1
+      name: dead-trees_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 32
         y: 0
-        width: 7
-        height: 4
+        width: 32
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be87634fe700a6890800000000000000
-      internalID: -7464152887150085909
+      spriteID: 11e76a873f5e20530800000000000000
+      internalID: 3819868267827592721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass-short-1_2
+      name: dead-trees_2
       rect:
         serializedVersion: 2
-        x: 19
+        x: 64
         y: 0
-        width: 6
-        height: 4
+        width: 32
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0c0a5badbb2b4960800000000000000
-      internalID: 7587206090859351055
+      spriteID: 60f7db3240c841460800000000000000
+      internalID: 7211542852734385926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass-short-1_3
+      name: dead-trees_3
       rect:
         serializedVersion: 2
-        x: 27
+        x: 96
         y: 0
-        width: 5
-        height: 4
+        width: 32
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b6a84a909af89790800000000000000
-      internalID: -7522987678551726415
+      spriteID: 82e9e53e91e0a74a0800000000000000
+      internalID: -6594943199979069912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass-short-1_4
+      name: dead-trees_4
       rect:
         serializedVersion: 2
-        x: 34
+        x: 128
         y: 0
-        width: 6
-        height: 4
+        width: 32
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c162724fe56200b0800000000000000
-      internalID: -5763932494794432060
+      spriteID: 0d1a4f4c85f9e5330800000000000000
+      internalID: 3701571147355431376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass-short-1_5
+      name: dead-trees_5
       rect:
         serializedVersion: 2
-        x: 42
+        x: 160
         y: 0
-        width: 7
-        height: 4
+        width: 32
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,50 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23156a25610ce3e60800000000000000
-      internalID: 7943997994836578610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grass-short-1_6
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 4
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dec5aaf4ee760e80800000000000000
-      internalID: -8212737348540707117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grass-short-1_7
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 0
-        width: 5
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 147b8bbd627973230800000000000000
-      internalID: 3618527018766350145
+      spriteID: 27e779e3d2a235b50800000000000000
+      internalID: 6580649854330437234
       vertices: []
       indices: 
       edges: []
