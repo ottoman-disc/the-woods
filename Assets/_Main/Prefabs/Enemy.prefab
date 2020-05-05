@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultState: {fileID: 4394130534225036602}
   CurrentState: {fileID: 0}
+  motorXZ: {fileID: 8172426988381259203}
 --- !u!114 &4394130534225036602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790581382400229458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0704caa124b4ff94aa31c0c8576c0aa6, type: 3}
   m_Name: 
@@ -148,12 +149,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790581382400229458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 495bc070825c7c94eb4e1c4edcf992b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motor: {fileID: 8172426988381259203}
   target: {fileID: 0}
   speed: 0.1
 --- !u!114 &4386538172120285582
@@ -163,12 +163,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790581382400229458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab99c832b2b132849991d76d25b1ef61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motor: {fileID: 8172426988381259203}
   speed: 0.1
   frequency: 2
 --- !u!1 &8172426988381259229

@@ -6,11 +6,11 @@ namespace OttomanDisc.StateMachine
     {
         protected StateManager stateManager;
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            this.enabled = false;
-
             stateManager = GetComponent<StateManager>();
+
+            this.enabled = false;
         }
     }
 }

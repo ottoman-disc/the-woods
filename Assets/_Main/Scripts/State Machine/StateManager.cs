@@ -9,8 +9,6 @@ namespace OttomanDisc.StateMachine
 
         protected virtual void Start()
         {
-            DisableAllStates(); // No states should be active to begin with
-
             SetState(DefaultState);
         }
 
@@ -26,12 +24,6 @@ namespace OttomanDisc.StateMachine
             if (CurrentState != null) CurrentState.enabled = false;
             CurrentState = state;
             CurrentState.enabled = true;
-        }
-
-        private void DisableAllStates()
-        {
-            State[] AllStates = GetComponents<State>();
-            foreach (State state in AllStates) state.enabled = false;
         }
     }
 }

@@ -10,11 +10,21 @@ namespace OttomanDisc.StateMachine
         {
             base.OnInspectorGUI();
 
-            if (!EditorApplication.isPlaying) return;
-
             State inspectedState = (State)target;
 
+            if (!EditorApplication.isPlaying)
+            {
+                if (inspectedState.enabled == true)
+                {
+                    Debug.LogWarning("State must begin disabled", this);
+                    inspectedState.enabled = false;
+                }
+                return;
+            }
+
             if (inspectedState.enabled == true) return;
+
+            GUILayout.Space(10);
 
             if (GUILayout.Button("Set State"))
             {

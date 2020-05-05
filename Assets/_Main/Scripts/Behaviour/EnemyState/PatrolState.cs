@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace OttomanDisc
 {
-    public class PatrolState : State
+    public class PatrolState : EnemyState
     {
-        [SerializeField] private MotorXZ motor;
         [SerializeField] private float speed = 0.1f;
         [SerializeField] private float frequency = 2f;
 
@@ -25,6 +24,7 @@ namespace OttomanDisc
         {
             Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
 
+            if (motor == null) return;
             motor.Move(direction * speed);
 
             timer = Time.time;
