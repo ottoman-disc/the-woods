@@ -16,7 +16,7 @@ namespace OttomanDisc.StateMachine
             {
                 if (inspectedState.enabled == true)
                 {
-                    Debug.LogWarning("State must begin disabled", this);
+                    Debug.LogWarning("State must begin disabled. Did you attempt to enable this script in the inspector? Don't do that!", this);
                     inspectedState.enabled = false;
                 }
                 return;

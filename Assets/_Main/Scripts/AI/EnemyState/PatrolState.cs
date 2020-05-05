@@ -1,7 +1,6 @@
-﻿using OttomanDisc.StateMachine;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace OttomanDisc
+namespace OttomanDisc.AI
 {
     public class PatrolState : EnemyState
     {
@@ -23,6 +22,9 @@ namespace OttomanDisc
         private void SetRandomDirection()
         {
             Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
+
+            if (directionIntention != null)
+                directionIntention.Value = direction * speed;
 
             if (motor == null) return;
             motor.Move(direction * speed);

@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using OttomanDisc.StateMachine;
+using UnityEngine;
 
-namespace OttomanDisc.StateMachine
+namespace OttomanDisc.AI
 {
     public class EnemyState : State
     {
         protected Transform t;
 
         protected MotorXZ motor;
+
+        protected MoveIntention directionIntention;
 
         protected override void Awake()
         {
@@ -18,6 +21,7 @@ namespace OttomanDisc.StateMachine
         {
             EnemyStateManager enemyStateManager = stateManager as EnemyStateManager;
             motor = enemyStateManager.motorXZ;
+            directionIntention = enemyStateManager.directionIntention;
         }
     }
 }

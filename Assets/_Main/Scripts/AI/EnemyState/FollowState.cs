@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OttomanDisc.StateMachine
+namespace OttomanDisc.AI
 {
     public class FollowState : EnemyState
     {
@@ -10,6 +10,10 @@ namespace OttomanDisc.StateMachine
         private void Update()
         {
             motor.Move((target.position - t.position).normalized * speed);
+
+
+
+            directionIntention.Value = (target.position - t.position).normalized;
         }
     }
 }
