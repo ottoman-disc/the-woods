@@ -1,24 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace OttomanDisc.AI
 {
     public class MoveIntention : MonoBehaviour
     {
-        public delegate void MoveAction(Vector3 direction);
-        public event MoveAction OnMove;
-
-        public delegate void StopAction();
-        public event StopAction OnStop;
-
-        public Vector3 Value;
-
-        [SerializeField] private MotorXZ motor;
-
-        private void OnEnable()
-        {
-            OnMove += motor.Move;
-            OnStop += motor.Stop;
-        }
+        [SerializeField] private Vector3Event OnMove;
+        [SerializeField] private UnityEvent OnStop;
 
         public void Move(Vector3 direction)
         {
@@ -29,11 +18,8 @@ namespace OttomanDisc.AI
         {
             OnStop.Invoke();
         }
-
-        private void OnDisable()
-        {
-            OnMove -= motor.Move;
-            OnStop -= motor.Stop;
-        }
     }
 }
+
+[Serializable]
+public class Vector3Event : UnityEvent<Vector3> { }

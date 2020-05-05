@@ -2,16 +2,17 @@
 
 namespace OttomanDisc.AI
 {
-    public class PatrolState : EnemyState
+    public class PatrolState : EntityState
     {
-        [SerializeField] private float speed = 0.1f;
         [SerializeField] private float frequency = 2f;
 
         private float timer;
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
             SetRandomDirection();
+
+            timer = Time.time;
         }
 
         private void Update()
@@ -23,11 +24,8 @@ namespace OttomanDisc.AI
         {
             Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
 
-            if (directionIntention != null)
-                directionIntention.Value = direction * speed;
-
-            if (motor == null) return;
-            motor.Move(direction * speed);
+            if (moveIntention != null)
+                moveIntention.Move(direction);
 
             timer = Time.time;
         }

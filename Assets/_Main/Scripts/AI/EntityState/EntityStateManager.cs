@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace OttomanDisc
 {
-    public class EnemyStateManager : StateManager
+    public class EntityStateManager : StateManager
     {
-        [SerializeField] public MotorXZ motorXZ;
-
         [SerializeField] public MoveIntention directionIntention;
     }
 }
