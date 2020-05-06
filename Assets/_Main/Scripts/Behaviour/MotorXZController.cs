@@ -33,7 +33,6 @@ namespace OttomanDisc
                 y = 0,
                 z = direction2D.y
             };
-            Debug.LogFormat("Moving {0}", direction);
             moter.Move(direction);
         }
 

@@ -10,19 +10,9 @@ namespace OttomanDisc.StateMachine
         {
             base.OnInspectorGUI();
 
+            if (!EditorApplication.isPlaying) return;
+
             State inspectedState = (State)target;
-
-            if (!EditorApplication.isPlaying)
-            {
-                if (inspectedState.enabled == true)
-                {
-                    Debug.LogWarning("State must begin disabled. Did you attempt to enable this script in the inspector? Don't do that!", this);
-                    inspectedState.enabled = false;
-                }
-                return;
-            }
-
-            if (inspectedState.enabled == true) return;
 
             GUILayout.Space(10);
 

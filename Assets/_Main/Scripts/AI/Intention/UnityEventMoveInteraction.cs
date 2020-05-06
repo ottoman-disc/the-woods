@@ -1,4 +1,4 @@
-﻿using System;
+﻿using OttomanDisc.Utility;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,18 +9,8 @@ namespace OttomanDisc.AI
         [SerializeField] private Vector3Event OnMove;
         [SerializeField] private UnityEvent OnStop;
 
-        public void Move(Vector3 direction)
-        {
-            OnMove.Invoke(direction);
-        }
+        public void Move(Vector3 direction) => OnMove.Invoke(direction);
 
-        public void Stop()
-        {
-            OnStop.Invoke();
-        }
+        public void Stop() => OnStop.Invoke();
     }
 }
-
-
-[Serializable]
-public class Vector3Event : UnityEvent<Vector3> { }

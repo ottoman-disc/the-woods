@@ -2,9 +2,9 @@
 {
     public class IdleState : EntityState
     {
-        protected override void OnEnable()
+        public override void Enter()
         {
-            base.OnEnable();
+            base.Enter();
 
             if (moveIntention != null)
                 moveIntention.Stop();

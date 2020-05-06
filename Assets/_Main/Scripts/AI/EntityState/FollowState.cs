@@ -6,9 +6,12 @@ namespace OttomanDisc.AI
     {
         [SerializeField] private Transform target;
 
-        private void Update()
+        public override void Tick()
         {
-            moveIntention.Move((target.position - t.position).normalized);
+            if (Vector3.Distance(t.position, target.position) > 1f)
+                moveIntention.Move((target.position - t.position).normalized);
+            else 
+                moveIntention.Stop();
         }
     }
 }

@@ -14,13 +14,7 @@ namespace OttomanDisc.AI
             base.Awake();
             t = this.transform;
 
-            EntityStateManager enemyStateManager = stateManager as EntityStateManager;
-            moveIntention = enemyStateManager.moveIntention;
-        }
-
-        protected virtual void OnEnable()
-        {
-            Debug.Log("<color=blue>[ENTITY STATE]</color> " + this.name +": Entered "+ GetType().Name);
+            moveIntention = GetComponent<IMoveIntention>();
         }
     }
 }
