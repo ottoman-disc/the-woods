@@ -6,6 +6,11 @@ namespace OttomanDisc
 {
     public class EntityStateManager : StateManager
     {
-        [SerializeField] public MoveIntention directionIntention;
+        public IMoveIntention moveIntention;
+
+        private void Awake()
+        {
+            moveIntention = GetComponent<IMoveIntention>();
+        }
     }
 }

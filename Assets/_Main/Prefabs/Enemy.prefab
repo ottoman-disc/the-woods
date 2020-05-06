@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4394130534225036602}
   - component: {fileID: 1412247226287130303}
   - component: {fileID: 4386538172120285582}
-  - component: {fileID: 93403369}
+  - component: {fileID: 3569192233861545613}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultState: {fileID: 4386538172120285582}
   CurrentState: {fileID: 0}
-  directionIntention: {fileID: 93403369}
+  directionIntention: {fileID: 0}
 --- !u!114 &4394130534225036602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 2
---- !u!114 &93403369
+--- !u!114 &3569192233861545613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790581382400229458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3fa7ed86b1733f45b759f24f17344cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a721e413a748534b821fa0712b8f0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnMove:
@@ -285,4 +285,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb280a297263aa54e952409f8a230417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.4
+  speed: 0.297

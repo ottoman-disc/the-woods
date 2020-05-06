@@ -7,7 +7,7 @@ namespace OttomanDisc.AI
     {
         protected Transform t;
 
-        protected MoveIntention moveIntention;
+        protected IMoveIntention moveIntention;
 
         protected override void Awake()
         {
@@ -15,7 +15,7 @@ namespace OttomanDisc.AI
             t = this.transform;
 
             EntityStateManager enemyStateManager = stateManager as EntityStateManager;
-            moveIntention = enemyStateManager.directionIntention;
+            moveIntention = enemyStateManager.moveIntention;
         }
 
         protected virtual void OnEnable()
