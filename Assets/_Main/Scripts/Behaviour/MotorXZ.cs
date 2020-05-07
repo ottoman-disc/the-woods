@@ -8,7 +8,7 @@ namespace OttomanDisc
         private Rigidbody _rb;
         private Vector3 _direction;
         private bool moving = false;
-        private const int speed = 2;
+        [SerializeField] [Range(0f, 1f)] private float speed = 0.2f;
 
         private void Awake()
         {
