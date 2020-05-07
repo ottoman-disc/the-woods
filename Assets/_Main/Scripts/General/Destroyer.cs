@@ -15,5 +15,11 @@ namespace OttomanDisc
             foreach (MonoBehaviour mb in componentsToDestroy)
                 Destroy(mb);
         }
+
+        public void ActivateAndDispose()
+        {
+            Activate();
+            Destroy(this);
+        }
     }
 }

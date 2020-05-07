@@ -6,22 +6,39 @@ using UnityEngine.Events;
 namespace OttomanDisc
 {
     public class PhotonPlayer : MonoBehaviourPun
-    { 
-        [SerializeField] UnityEvent remotePlayerEvent;
+    {
+        public Object[] destroyIfNotConnected; // objects to remove when testing w/o network
+        public Object[] destroyIfRemote; // objects to remove if player is remote
+
 
         private void Start()
         {
-            if (!PhotonNetwork.IsConnected) return;
-
-            if (photonView.IsMine)
+            if (!PhotonNetwork.IsConnected)
             {
-                this.name = "PLAYER: LOCAL";
+                RemoveBehaviours(destroyIfNotConnected);
+                Destroy(this);
+                return;
             }
             else
             {
-                this.name = "PLAYER: REMOTE";
+                if (photonView.IsMine)
+                {
+                    this.name = "PLAYER: LOCAL";
+                }
+                else
+                {
+                    this.name = "PLAYER: REMOTE";
+                    RemoveBehaviours(destroyIfRemote);
+                }
+            }
+        }
 
-                remotePlayerEvent.Invoke();
+        private void RemoveBehaviours(Object[] objects)
+        {
+            foreach (var obj in objects)
+            {
+                Debug.LogFormat("Removing object: {0}", obj);
+                Destroy(obj);
             }
         }
     }
