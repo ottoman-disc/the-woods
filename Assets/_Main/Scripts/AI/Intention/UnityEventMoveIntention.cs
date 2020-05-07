@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace OttomanDisc.AI
 {
-    public class UnityEventMoveInteraction : MonoBehaviour, IMoveIntention
+    public class UnityEventMoveIntention : MonoBehaviour, IMoveIntention
     {
         [SerializeField] private Vector3Event OnMove;
         [SerializeField] private UnityEvent OnStop;

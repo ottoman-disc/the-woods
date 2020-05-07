@@ -2,7 +2,7 @@
 
 namespace OttomanDisc.AI
 {
-    public class MotorMoveInteraction : MonoBehaviour, IMoveIntention
+    public class MotorMoveIntention : MonoBehaviour, IMoveIntention
     {
         [SerializeField] MotorXZ motor;
 
