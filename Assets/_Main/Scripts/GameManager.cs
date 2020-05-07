@@ -4,25 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using Cinemachine;
 
 namespace OttomanDisk
 {
     public class GameManager : MonoBehaviourPunCallbacks
     {
-        public GameObject playerPrefab; 
+        public GameObject playerPrefab;
+        public CinemachineVirtualCamera virtualCamera;
+        private GameObject _instantiatedPlayer;
 
         // Monobehaviour Methods
         void Start()
         {
-            if (playerPrefab == null)
-            {
-                Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'",this);
-            }
-            else 
-            {
-                Debug.Log("Instantiating local player");
-                PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(1f,2f,0f), Quaternion.identity, 0);
-            }
+            InstantiatePlayer();
+            ConfigureCamera();
         }
 
         void Update()
@@ -61,6 +57,38 @@ namespace OttomanDisk
         //     }
         //     PhotonNetwork.LoadLevel(1);
         // }
+
+        private void InstantiatePlayer()
+        {
+            if (playerPrefab == null)
+            {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
+                return;
+            }
+
+            if (PhotonNetwork.IsConnected)
+            {
+                Debug.Log("Instantiating network player");
+                _instantiatedPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(1f, 2f, 0f), Quaternion.identity, 0);
+            }
+            else
+            {
+                Debug.Log("Instantiating local player");
+                _instantiatedPlayer = Instantiate(this.playerPrefab, new Vector3(1f, 2f, 0f), Quaternion.identity);
+            }
+        }
+
+        private void ConfigureCamera()
+        {
+            if (virtualCamera == null)
+            {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> virtualCamera Reference. Please set it up in GameObject 'Game Manager'", this);
+                return;
+            }
+
+            virtualCamera.LookAt = _instantiatedPlayer.transform;
+            virtualCamera.Follow = _instantiatedPlayer.transform;
+        }
 
     }
 
