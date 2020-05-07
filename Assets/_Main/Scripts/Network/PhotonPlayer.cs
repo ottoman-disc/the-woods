@@ -15,7 +15,7 @@ namespace OttomanDisc
         {
             if (!PhotonNetwork.IsConnected)
             {
-                RemoveBehaviours(destroyIfNotConnected);
+                RemoveObjects(destroyIfNotConnected);
                 Destroy(this);
                 return;
             }
@@ -28,12 +28,12 @@ namespace OttomanDisc
                 else
                 {
                     this.name = "PLAYER: REMOTE";
-                    RemoveBehaviours(destroyIfRemote);
+                    RemoveObjects(destroyIfRemote);
                 }
             }
         }
 
-        private void RemoveBehaviours(Object[] objects)
+        private void RemoveObjects(Object[] objects)
         {
             foreach (var obj in objects)
             {
