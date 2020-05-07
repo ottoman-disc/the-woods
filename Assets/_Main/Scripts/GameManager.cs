@@ -11,14 +11,13 @@ namespace OttomanDisk
     public class GameManager : MonoBehaviourPunCallbacks
     {
         public GameObject playerPrefab;
-        public CinemachineVirtualCamera virtualCamera;
-        private GameObject _instantiatedPlayer;
+        private Vector3 _playerStartingPos = Vector3.zero;
 
         // Monobehaviour Methods
         void Start()
         {
             InstantiatePlayer();
-            ConfigureCamera();
+            //ConfigureCamera();
         }
 
         void Update()
@@ -69,26 +68,26 @@ namespace OttomanDisk
             if (PhotonNetwork.IsConnected)
             {
                 Debug.Log("Instantiating network player");
-                _instantiatedPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(1f, 2f, 0f), Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(this.playerPrefab.name, _playerStartingPos, Quaternion.identity, 0);
             }
             else
             {
                 Debug.Log("Instantiating local player");
-                _instantiatedPlayer = Instantiate(this.playerPrefab, new Vector3(1f, 2f, 0f), Quaternion.identity);
+                Instantiate(this.playerPrefab, _playerStartingPos, Quaternion.identity);
             }
         }
 
-        private void ConfigureCamera()
-        {
-            if (virtualCamera == null)
-            {
-                Debug.LogError("<Color=Red><a>Missing</a></Color> virtualCamera Reference. Please set it up in GameObject 'Game Manager'", this);
-                return;
-            }
+        // private void ConfigureCamera()
+        // {
+        //     if (virtualCamera == null)
+        //     {
+        //         Debug.LogError("<Color=Red><a>Missing</a></Color> virtualCamera Reference. Please set it up in GameObject 'Game Manager'", this);
+        //         return;
+        //     }
 
-            virtualCamera.LookAt = _instantiatedPlayer.transform;
-            virtualCamera.Follow = _instantiatedPlayer.transform;
-        }
+        //     virtualCamera.LookAt = _instantiatedPlayer.transform;
+        //     virtualCamera.Follow = _instantiatedPlayer.transform;
+        // }
 
     }
 
