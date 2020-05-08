@@ -3,12 +3,12 @@
 namespace OttomanDisc
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class MotorXZ : MonoBehaviour
+    public class MotorXZ : MonoBehaviour, IMotor
     {
         private Rigidbody _rb;
         private Vector3 _direction;
         private bool moving = false;
-        [SerializeField] [Range(1f, 10f)] private float speed = 1f;
+        [SerializeField] [Range(0f, 3f)] private float speed = 1f;
 
         private void Awake()
         {
