@@ -3,18 +3,18 @@ using UnityEngine.InputSystem;
 
 namespace OttomanDisc
 {
-    [RequireComponent(typeof(MotorXZ))]
+    [RequireComponent(typeof(IMotor))]
     public class MotorXZController : MonoBehaviour
     {
         private PlayerInputActions inputActions;
 
-        private MotorXZ moter;
+        private IMotor moter;
 
         private void Awake()
         {
             inputActions = new PlayerInputActions();
 
-            moter = GetComponent<MotorXZ>();
+            moter = GetComponent<IMotor>();
         }
 
         private void OnEnable()
