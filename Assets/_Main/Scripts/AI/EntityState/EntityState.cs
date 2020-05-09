@@ -1,4 +1,5 @@
-﻿using OttomanDisc.StateMachine;
+﻿using OttomanDisc.Art;
+using OttomanDisc.StateMachine;
 using UnityEngine;
 
 namespace OttomanDisc.AI
@@ -6,6 +7,7 @@ namespace OttomanDisc.AI
     public class EntityState : State
     {
         protected Transform t;
+        protected EntityStateManager entityStateManager;
 
         protected IMoveIntention moveIntention;
 
@@ -15,6 +17,13 @@ namespace OttomanDisc.AI
             t = this.transform;
 
             moveIntention = GetComponent<IMoveIntention>();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            entityStateManager = stateManager as EntityStateManager;
         }
     }
 }
