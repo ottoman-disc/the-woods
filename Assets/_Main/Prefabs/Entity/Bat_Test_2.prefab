@@ -158,7 +158,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 2.46
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7224410681578859211
 MonoBehaviour:
@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 9115520620523791519}
   - component: {fileID: 7974126861938037854}
   - component: {fileID: 8395266127950172576}
+  - component: {fileID: 9038907569906371786}
   m_Layer: 0
   m_Name: Bat_Test_2
   m_TagString: Untagged
@@ -248,6 +249,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fee232ab9ad9c4b93dcb6d3e281cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &9038907569906371786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440517411977498682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8822384807219708779
 GameObject:
   m_ObjectHideFlags: 0

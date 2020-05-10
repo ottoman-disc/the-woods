@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace OttomanDisc.Art 
+namespace OttomanDisc.Art
 {
-    public class BatArt : MonoBehaviour
+    public class BatAnimatorController : EntityAnimatorController
     {
         private Animator animator;
 
@@ -36,5 +35,10 @@ namespace OttomanDisc.Art
         {
             animator.SetBool(FlyingParameter, true);
         }
+    }
+
+    public class EntityAnimatorController : MonoBehaviour
+    {
+
     }
 }
