@@ -7,17 +7,18 @@ namespace OttomanDisc.AI
     {
         [HideInInspector] public Vector3 startingPoint;
 
-        [SerializeField] private EntityState followState;
+        [SerializeField] private FollowState followState;
 
         private void Awake()
         {
             startingPoint = this.transform.position;
         }
 
-        public void Follow()
+        public void Follow(Transform target)
         {
             Debug.Log("DETECT");
 
+            followState.SetTarget(target);
             SetState(followState);
         }
     }

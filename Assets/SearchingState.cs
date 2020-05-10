@@ -8,14 +8,11 @@ namespace OttomanDisc.AI
     {
         [SerializeField] private GameObject scanZone;
 
-        protected override void Start()
-        {
-            scanZone.SetActive(false);
-        }
-
         public override void Enter()
         {
             base.Enter();
+
+            print("Activating Search Zone");
 
             scanZone.SetActive(true);
         }

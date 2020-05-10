@@ -4,12 +4,17 @@ namespace OttomanDisc.AI
 {
     public class FollowState : EntityState
     {
-        [SerializeField] private Transform target;
+        private Transform _target;
+
+        public void SetTarget(Transform target)
+        {
+            _target = target;
+        }
 
         public override void Tick()
         {
-            if (Vector3.Distance(t.position, target.position) > 1f)
-                moveIntention.Move((target.position - t.position).normalized);
+            if (Vector3.Distance(t.position, _target.position) > 1f)
+                moveIntention.Move((_target.position - t.position).normalized);
             else 
                 moveIntention.Stop();
         }

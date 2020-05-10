@@ -2,8 +2,7 @@
 
 namespace OttomanDisc
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IEntity
     {
-
     }
 }
