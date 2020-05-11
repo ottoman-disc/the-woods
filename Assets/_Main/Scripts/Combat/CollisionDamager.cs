@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace OttomanDisc
 {
-    public class SimpleDamager : MonoBehaviour, IDamage
+    public class CollisionDamager : MonoBehaviour, IDamage
     {
         public int Damage { get { return 5; } }
 
