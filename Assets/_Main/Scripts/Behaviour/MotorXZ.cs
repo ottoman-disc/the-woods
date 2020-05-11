@@ -10,6 +10,8 @@ namespace OttomanDisc
         private bool moving = false;
         [SerializeField] [Range(0f, 3f)] private float speed = 1f;
 
+        public bool IsMoving { get { return moving; } }
+
         private void Awake()
         {
             _rb = this.GetComponent<Rigidbody>();

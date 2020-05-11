@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 423882181796970575}
   - component: {fileID: 1823537405245107977}
   m_Layer: 0
-  m_Name: Bat_Test_2
+  m_Name: Bat_Damion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7863277915334605790}
   - component: {fileID: 4563694438305143195}
-  - component: {fileID: 1787383916374450150}
+  - component: {fileID: 5227504909556218440}
   - component: {fileID: 3753306662875886679}
   m_Layer: 0
   m_Name: Brain
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3443297079aeddd4b91917dd82e514ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1787383916374450150
+--- !u!114 &5227504909556218440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
