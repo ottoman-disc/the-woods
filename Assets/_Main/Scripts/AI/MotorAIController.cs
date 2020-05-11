@@ -2,7 +2,7 @@
 
 namespace OttomanDisc.AI
 {
-    public class MotorTargetIntention : MonoBehaviour, IMoveIntention
+    public class MotorAIController : MonoBehaviour, IMotorAIController
     {
         [SerializeField] GameObject motorObject;
         IMotor motor;
