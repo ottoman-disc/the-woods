@@ -16,7 +16,7 @@ namespace OttomanDisc.AI
         {
             if(motorObject == null)
             {
-                Debug.Log("motor Object has not been assigned. Automatically assigning parent. This may not be correct!", this.gameObject);
+                Debug.Log("Motor object has not been assigned. Automatically assigning parent. This might not be intended!", this.gameObject);
                 motorObject = transform.parent.gameObject;
             }
 
@@ -28,20 +28,22 @@ namespace OttomanDisc.AI
 
         private void Update()
         {
+            Vector3 thisPosition = t.position;
+
             if (_targetTransform != null)
             {
                 _targetPosition = _targetTransform.position;
             }
 
-            if (Vector3.Distance(t.position, _targetPosition) > 0.01f)
-                Move((_targetPosition - t.position).normalized);
+            if (Vector3.Distance(thisPosition, _targetPosition) > 0.01f)
+                Move((_targetPosition - thisPosition).normalized);
             else
                 Stop();
+
+            void Move(Vector3 direction) => motor.Move(direction);
+
+            void Stop() => motor.Stop();
         }
-
-        public void Move(Vector3 direction) => motor.Move(direction);
-
-        public void Stop() => motor.Stop();
 
         public void SetTarget(Transform target) => _targetTransform = target;
 
