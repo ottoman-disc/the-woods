@@ -7,6 +7,9 @@ namespace OttomanDisc.AI
         void Move(Vector3 direction);
 
         void Stop();
-    }
 
+        void SetTarget(Transform transform);
+
+        void SetTargetPosition(Vector3 position);
+    }
 }

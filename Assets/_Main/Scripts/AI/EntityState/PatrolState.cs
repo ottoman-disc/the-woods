@@ -15,31 +15,43 @@ namespace OttomanDisc.AI
         {
             base.Enter();
 
-            center = t.position;
+            BatTestStateManager batStateManager = entityStateManager as BatTestStateManager;
 
-            SetRandomDirection();
+            center = batStateManager._home.position;
+
+            SetRandomTarget();
         }
 
         public override void Tick()
         {
             base.Tick();
 
-            if (Time.time - timer > frequency) SetRandomDirection();
+            if (Time.time - timer > frequency) SetRandomTarget();
         }
 
-        private void SetRandomDirection()
+        private void SetRandomTarget()
         {
-            Vector3 direction;
+            Vector3 newPosition;
 
             if (Vector3.Distance(t.position, center) > range)
-                direction = (center - t.position).normalized;
+                newPosition = center;
             else
-                direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
+                newPosition = center.GetRandomPositionOnCircle(5f);
 
             if (moveIntention != null)
-                moveIntention.Move(direction);
+                moveIntention.SetTargetPosition(newPosition);
 
             timer = Time.time;
+        }
+    }
+
+    public static class Vector3Extension
+    {
+        public static Vector3 GetRandomPositionOnCircle(this Vector3 center, float range)
+        {
+            Vector3 randomUnitSphere = Random.insideUnitSphere;
+            randomUnitSphere.y = 0f;
+            return center + randomUnitSphere * range;
         }
     }
 }

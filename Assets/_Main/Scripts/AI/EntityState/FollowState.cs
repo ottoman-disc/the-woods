@@ -11,12 +11,22 @@ namespace OttomanDisc.AI
             _target = target;
         }
 
-        public override void Tick()
+        public override void Enter()
         {
-            if (Vector3.Distance(t.position, _target.position) > 1f)
-                moveIntention.Move((_target.position - t.position).normalized);
-            else 
-                moveIntention.Stop();
+            base.Enter();
+
+            entityStateManager.SetAlert(false);
+
+            moveIntention.SetTarget(_target);
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            entityStateManager.SetAlert(true);
+
+            moveIntention.Stop();
         }
     }
 }

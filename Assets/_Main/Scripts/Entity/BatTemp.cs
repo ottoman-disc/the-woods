@@ -2,4 +2,5 @@
 
 public class BatTemp : MonoBehaviour, IEntity
 {
+
 }

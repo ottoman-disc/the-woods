@@ -6,15 +6,37 @@ namespace OttomanDisc.AI
     {
         [SerializeField] MotorXZ motor;
 
-        public void Move(Vector3 direction)
+        private Transform _target;
+        private Vector3 _targetPos;
+
+        private void Awake()
         {
-            motor.Move(direction);
+            _targetPos = this.transform.position;
         }
 
-        public void Stop()
+        private void Update()
         {
-            motor.Stop();
+            if (_target != null)
+            {
+                _targetPos = _target.position;
+            }
+
+            if (Vector3.Distance(motor.transform.position, _targetPos) > 0.1f)
+                Move((_targetPos - motor.transform.position).normalized);
+            else
+                Stop();
+        }
+
+        public void Move(Vector3 direction) => motor.Move(direction);
+
+        public void Stop() => motor.Stop();
+
+        public void SetTarget(Transform target) => _target = target;
+
+        public void SetTargetPosition(Vector3 position)
+        {
+            _target = null;
+            _targetPos = position;
         }
     }
-
 }

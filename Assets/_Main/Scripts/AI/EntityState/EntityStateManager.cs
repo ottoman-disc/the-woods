@@ -5,21 +5,25 @@ namespace OttomanDisc.AI
 {
     public class EntityStateManager : StateManager
     {
-        [HideInInspector] public Vector3 startingPoint;
+        [Header("ENTITY")]
+
+        [SerializeField] private GameObject detectTrigger;
 
         [SerializeField] private FollowState followState;
 
-        private void Awake()
+        public void MoveTowards(Transform target)
         {
-            startingPoint = this.transform.position;
+            GetComponent<IMoveIntention>().SetTarget(target);
         }
 
         public void Follow(Transform target)
         {
-            Debug.Log("DETECT");
-
-            followState.SetTarget(target);
             SetState(followState);
+        }
+
+        public void SetAlert(bool alert)
+        {
+            detectTrigger.SetActive(alert);
         }
     }
 }

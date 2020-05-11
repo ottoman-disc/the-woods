@@ -2,12 +2,12 @@
 
 namespace OttomanDisc.AI
 {
-    public class EntityTrigger : MonoBehaviour
+    public class FollowEntityTrigger : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<IEntity>() != null)
-                GetComponentInParent<EntityStateManager>().Follow(other.transform);
+                GetComponentInParent<EntityStateManager>().MoveTowards(other.transform);
         }
     }
 }
