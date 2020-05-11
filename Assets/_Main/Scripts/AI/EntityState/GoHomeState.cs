@@ -1,14 +1,12 @@
 ﻿namespace OttomanDisc.AI
 {
-    public class GoHomeState : EntityState
+    public class GoHomeState : BatState
     {
         public override void Enter()
         {
             base.Enter();
 
-            BatTestStateManager batStateManager = entityStateManager as BatTestStateManager;
-
-            moveIntention.SetTargetPosition(batStateManager._home.position);
+            entityStateManager.SetTarget(entityStateManager.startingPosition);
         }
     }
 }

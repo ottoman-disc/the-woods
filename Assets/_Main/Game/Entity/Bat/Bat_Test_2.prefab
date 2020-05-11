@@ -271,10 +271,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7291975418065553065}
-  - component: {fileID: 7231042990199613268}
+  - component: {fileID: 7945158086453241375}
+  - component: {fileID: 4037866175428323427}
   - component: {fileID: 4179387681994210935}
   - component: {fileID: 2718327326200278867}
-  - component: {fileID: 4037866175428323427}
   - component: {fileID: 5283421833403359542}
   m_Layer: 0
   m_Name: Brain
@@ -298,7 +298,7 @@ Transform:
   m_Father: {fileID: 8924054181984146638}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7231042990199613268
+--- !u!114 &7945158086453241375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,16 +307,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 8822384807219708779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67ea5b10b43e3844bb8de3f67f78cdf1, type: 3}
+  m_Script: {fileID: 11500000, guid: bf762e74fcddf8c498d8f6a776c5ed68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultState: {fileID: 2718327326200278867}
+  DefaultState: {fileID: 4037866175428323427}
   CurrentState: {fileID: 0}
+  goHomeState: {fileID: 0}
+  followState: {fileID: 0}
+  patrolState: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   detectTrigger: {fileID: 4408902941662268225}
-  followState: {fileID: 4179387681994210935}
-  homePrefab: {fileID: 7573373114436775289, guid: 7d30d83451ca0b94d8921cefc195ec56,
-    type: 3}
-  _home: {fileID: 0}
+--- !u!114 &4037866175428323427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822384807219708779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7e306c27d804847ae9c2ccb4e41397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4179387681994210935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,18 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frequency: 2
   range: 5
---- !u!114 &4037866175428323427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8822384807219708779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7e306c27d804847ae9c2ccb4e41397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5283421833403359542
 MonoBehaviour:
   m_ObjectHideFlags: 0

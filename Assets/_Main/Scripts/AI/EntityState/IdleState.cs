@@ -1,13 +1,13 @@
 ﻿namespace OttomanDisc.AI
 {
-    public class IdleState : EntityState
+    public class IdleState : BatState
     {
         public override void Enter()
         {
             base.Enter();
 
-            if (moveIntention != null)
-                moveIntention.Stop();
+            //if (entityStateManager.moveIntention != null)
+              //  moveIntention.Stop();
         }
     }
 }

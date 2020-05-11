@@ -2,14 +2,9 @@
 
 namespace OttomanDisc.AI
 {
-    public class FollowState : EntityState
+    public class FollowState : BatState
     {
         private Transform _target;
-
-        public void SetTarget(Transform target)
-        {
-            _target = target;
-        }
 
         public override void Enter()
         {
@@ -17,7 +12,7 @@ namespace OttomanDisc.AI
 
             entityStateManager.SetAlert(false);
 
-            moveIntention.SetTarget(_target);
+            entityStateManager.EntityTrigger(_target);
         }
 
         public override void Exit()
@@ -26,7 +21,7 @@ namespace OttomanDisc.AI
 
             entityStateManager.SetAlert(true);
 
-            moveIntention.Stop();
+            //entityStateManager.SetState();
         }
     }
 }

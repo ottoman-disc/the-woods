@@ -20,7 +20,7 @@ namespace OttomanDisc.StateMachine
 
         public void SetState(State state)
         {
-            if (state == CurrentState) return; // Probably don't want to set the state to our current state.
+            if (state == CurrentState) return;
 
             if (CurrentState != null) CurrentState.Exit();
             CurrentState = state;

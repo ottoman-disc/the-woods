@@ -2,22 +2,16 @@
 
 namespace OttomanDisc.AI
 {
-    public class PatrolState : EntityState
+    public class PatrolState : BatState
     {
         [SerializeField] private float frequency = 2f;
         [SerializeField] private float range = 5f;
-
-        private Vector3 center;
 
         private float timer;
 
         public override void Enter()
         {
             base.Enter();
-
-            BatTestStateManager batStateManager = entityStateManager as BatTestStateManager;
-
-            center = batStateManager._home.position;
 
             SetRandomTarget();
         }
@@ -33,25 +27,14 @@ namespace OttomanDisc.AI
         {
             Vector3 newPosition;
 
-            if (Vector3.Distance(t.position, center) > range)
-                newPosition = center;
+            if (Vector3.Distance(this.transform.position, entityStateManager.startingPosition) > range)
+                newPosition = entityStateManager.startingPosition;
             else
-                newPosition = center.GetRandomPositionOnCircle(5f);
+                newPosition = entityStateManager.startingPosition.GetRandomPositionOnCircle(5f);
 
-            if (moveIntention != null)
-                moveIntention.SetTargetPosition(newPosition);
+            entityStateManager.SetTarget(newPosition);
 
             timer = Time.time;
-        }
-    }
-
-    public static class Vector3Extension
-    {
-        public static Vector3 GetRandomPositionOnCircle(this Vector3 center, float range)
-        {
-            Vector3 randomUnitSphere = Random.insideUnitSphere;
-            randomUnitSphere.y = 0f;
-            return center + randomUnitSphere * range;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace OttomanDisc.AI
                 _targetPos = _target.position;
             }
 
-            if (Vector3.Distance(motor.transform.position, _targetPos) > 0.1f)
+            if (Vector3.Distance(motor.transform.position, _targetPos) > 0.01f)
                 Move((_targetPos - motor.transform.position).normalized);
             else
                 Stop();
