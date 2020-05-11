@@ -16,5 +16,4 @@ namespace OttomanDisc.AI
             motor.Stop();
         }
     }
-
 }
