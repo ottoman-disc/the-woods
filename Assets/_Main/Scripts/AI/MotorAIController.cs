@@ -5,9 +5,9 @@ namespace OttomanDisc.AI
     public class MotorAIController : MonoBehaviour, IMotorAIController
     {
         [SerializeField] GameObject motorObject;
-        IMotor motor;
 
-        private Transform t;
+        private IMotor _motor;
+        private Transform _motorTransform;
 
         private Transform _targetTransform;
         private Vector3 _targetPosition;
@@ -20,15 +20,15 @@ namespace OttomanDisc.AI
                 motorObject = transform.parent.gameObject;
             }
 
-            motor = motorObject.GetComponent<IMotor>();
-            t = motorObject.transform;
+            _motor = motorObject.GetComponent<IMotor>();
+            _motorTransform = motorObject.transform;
 
-            _targetPosition = this.transform.position;
+            SetTargetPosition(_motorTransform.position); // Target set to our current position to start with. 
         }
 
         private void Update()
         {
-            Vector3 thisPosition = t.position;
+            Vector3 thisPosition = _motorTransform.position;
 
             if (_targetTransform != null)
             {
@@ -36,16 +36,12 @@ namespace OttomanDisc.AI
             }
 
             if (Vector3.Distance(thisPosition, _targetPosition) > 0.01f)
-                Move((_targetPosition - thisPosition).normalized);
+                _motor.Move((_targetPosition - thisPosition).normalized);
             else
-                Stop();
-
-            void Move(Vector3 direction) => motor.Move(direction);
-
-            void Stop() => motor.Stop();
+                _motor.Stop();
         }
 
-        public void SetTarget(Transform target) => _targetTransform = target;
+        public void SetTargetTransform(Transform target) => _targetTransform = target;
 
         public void SetTargetPosition(Vector3 position)
         {

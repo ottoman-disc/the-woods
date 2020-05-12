@@ -38,7 +38,7 @@ namespace OttomanDisc.AI
         private void SetTarget(Transform target)
         {
             currentTarget = target;
-            moveIntention.SetTarget(target);
+            moveIntention.SetTargetTransform(target);
         }
 
         private void GoHome()
