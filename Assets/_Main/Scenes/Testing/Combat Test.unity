@@ -655,6 +655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  damageEffect: {fileID: 11400000, guid: aa768bf82c868aa43a60d360601cd75f, type: 2}
+  deathEffect: {fileID: 11400000, guid: c7c231e18d51f5d4796261dfb9435bbc, type: 2}
 --- !u!135 &1067067077
 SphereCollider:
   m_ObjectHideFlags: 0
