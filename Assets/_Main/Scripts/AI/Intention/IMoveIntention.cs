@@ -8,5 +8,4 @@ namespace OttomanDisc.AI
 
         void Stop();
     }
-
 }
