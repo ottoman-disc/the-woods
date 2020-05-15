@@ -2,33 +2,25 @@
 
 namespace OttomanDisc.AI
 {
+    [RequireComponent(typeof(IMotor))]
     public class MotorAIController : MonoBehaviour, IMotorAIController
     {
-        [SerializeField] GameObject motorObject;
-
         private IMotor _motor;
-        private Transform _motorTransform;
-
         private Transform _targetTransform;
         private Vector3 _targetPosition;
 
         private void Awake()
         {
-            if(motorObject == null)
-            {
-                Debug.Log("Motor object has not been assigned. Automatically assigning parent. This might not be intended!", this.gameObject);
-                motorObject = transform.parent.gameObject;
-            }
+            // this controller will be influencing a motor
+            _motor = GetComponent<IMotor>();
 
-            _motor = motorObject.GetComponent<IMotor>();
-            _motorTransform = motorObject.transform;
-
-            SetTargetPosition(_motorTransform.position); // Target set to our current position to start with. 
+            // setting the target position equates to staying in place
+            SetTargetPosition(transform.position);
         }
 
         private void Update()
         {
-            Vector3 thisPosition = _motorTransform.position;
+            Vector3 thisPosition = transform.position;
 
             if (_targetTransform != null)
             {
