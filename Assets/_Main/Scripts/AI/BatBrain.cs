@@ -2,18 +2,37 @@
 
 namespace OttomanDisc.AI
 {
+    public enum BatAnimations
+    {
+        isFlying
+    }
     public class BatBrain : MonoBehaviour
     {
         private Vector3 startingPosition;
 
-        private Transform currentTarget;
+        public Transform currentTarget;
 
         private IMotorAIController moveIntention;
+        private Animator animator;
+        private IMotor motor;
+        private bool goingHome = false; // tracks flight home in order to trigger animation
 
         private void Awake()
         {
             startingPosition = this.transform.position;
             moveIntention = GetComponent<IMotorAIController>();
+            animator = GetComponent<Animator>();
+            motor = GetComponent<IMotor>();
+        }
+
+        private void Update()
+        {
+            if (!motor.IsMoving && goingHome)
+            {
+                // bat was retunring home and is now stationary
+                goingHome = false;
+                SetAnimation(BatAnimations.isFlying, false);
+            }
         }
 
         // Trigger Callbacks
@@ -23,6 +42,7 @@ namespace OttomanDisc.AI
 
             if (other.GetComponent<Player>() != null)
             {
+                SetAnimation(BatAnimations.isFlying, true);
                 SetTarget(other.transform);
             }
         }
@@ -39,9 +59,18 @@ namespace OttomanDisc.AI
             moveIntention.SetTargetTransform(target);
         }
 
+        private void SetAnimation(BatAnimations animation, bool value)
+        {
+            if (animator)
+            {
+                animator.SetBool(animation.ToString(), value);
+            }
+        }
+
         private void GoHome()
         {
             currentTarget = null;
+            goingHome = true;
             moveIntention.SetTargetPosition(startingPosition);
         }
     }
