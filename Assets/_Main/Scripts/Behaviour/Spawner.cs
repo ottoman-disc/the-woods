@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        var spawnPos = transform.position + new Vector3(Random.Range(0,2), 0, Random.Range(0, 2));
+        var spawnPos = transform.position + new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5));
         Instantiate(enemyPrefab, spawnPos, transform.rotation);
         Debug.Log("Spawned new ememy");
     }
