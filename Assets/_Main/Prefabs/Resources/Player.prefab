@@ -194,6 +194,8 @@ MonoBehaviour:
   - {fileID: 4046416735582299178}
   - {fileID: 6183958990096296736}
   - {fileID: 5094494493332483886}
+  - {fileID: 7475844998967692965}
+  - {fileID: 6363195384602912346}
 --- !u!212 &4046416735582299179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -284,12 +286,12 @@ PrefabInstance:
     - target: {fileID: 6492341502524161555, guid: b2f9476400693bf4c9b7f66ee3541e69,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008315091
+      value: -0.000000008314937
       objectReference: {fileID: 0}
     - target: {fileID: 6492341502524161555, guid: b2f9476400693bf4c9b7f66ee3541e69,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002208038
+      value: 0.0000000022079973
       objectReference: {fileID: 0}
     - target: {fileID: 6492341502524161555, guid: b2f9476400693bf4c9b7f66ee3541e69,
         type: 3}
@@ -323,6 +325,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f9476400693bf4c9b7f66ee3541e69, type: 3}
+--- !u!1 &7475844998967692965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8447571396447346750, guid: b2f9476400693bf4c9b7f66ee3541e69,
+    type: 3}
+  m_PrefabInstance: {fileID: 1334266188555300507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5232384751995539592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6492341502524161555, guid: b2f9476400693bf4c9b7f66ee3541e69,
