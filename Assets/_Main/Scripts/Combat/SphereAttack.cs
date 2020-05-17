@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OttomanDisc
 {
-    public class Hit : MonoBehaviour, IDamage
+    public class SphereAttack : MonoBehaviour, IDamage
     {
         [SerializeField] LayerMask layerMask;
 
@@ -17,11 +17,6 @@ namespace OttomanDisc
         private void Awake()
         {
             _thisTransform = this.transform;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) Attack();
         }
 
         public void Attack()

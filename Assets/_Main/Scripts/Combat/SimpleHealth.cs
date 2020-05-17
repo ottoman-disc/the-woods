@@ -5,6 +5,7 @@ namespace OttomanDisc
     public class SimpleHealth : MonoBehaviour, IDamageable
     {
         [SerializeField] int health = 10;
+
         [SerializeField] EffectConfig damageEffect;
         [SerializeField] EffectConfig deathEffect;
 
