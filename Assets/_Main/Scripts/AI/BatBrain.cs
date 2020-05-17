@@ -1,77 +1,69 @@
-﻿using UnityEngine;
+﻿using OttomanDisc.Art;
+using UnityEngine;
 
 namespace OttomanDisc.AI
 {
-    public enum BatAnimations
-    {
-        isFlying
-    }
     public class BatBrain : MonoBehaviour
     {
-        private Vector3 startingPosition;
+        private Vector3 _homePosition;
 
-        public Transform currentTarget;
+        private Transform _currentTarget;
+        private bool _goingHome = false; // tracks flight home in order to trigger animation
 
-        private IMotorAIController moveIntention;
-        private Animator animator;
-        private IMotor motor;
-        private bool goingHome = false; // tracks flight home in order to trigger animation
+        private IMotorAIController _motorAIController;
+        private IMotor _motor;
+
+        private BatAnimatorHandler _animatorHandler;
 
         private void Awake()
         {
-            startingPosition = this.transform.position;
-            moveIntention = GetComponent<IMotorAIController>();
-            animator = GetComponent<Animator>();
-            motor = GetComponent<IMotor>();
+            _homePosition = this.transform.position;
+
+            _motorAIController = GetComponent<IMotorAIController>();
+            _motor = GetComponent<IMotor>();
+
+            _animatorHandler = GetComponent<BatAnimatorHandler>();
         }
 
         private void Update()
         {
-            if (!motor.IsMoving && goingHome)
+            if (!_motor.IsMoving && _goingHome)
             {
-                // bat was retunring home and is now stationary
-                goingHome = false;
-                SetAnimation(BatAnimations.isFlying, false);
+                // bat was returning home and is now stationary
+                _animatorHandler.Land();
+                _goingHome = false;
             }
         }
 
         // Trigger Callbacks
         private void OnTriggerEnter(Collider other)
         {
-            if (currentTarget != null) return; // If already has a target, ignore
+            if (_currentTarget != null) return; // If already has a target, ignore
 
             if (other.GetComponent<Player>() != null)
             {
-                SetAnimation(BatAnimations.isFlying, true);
                 SetTarget(other.transform);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.transform == currentTarget) GoHome();
+            if (other.transform == _currentTarget) GoHome();
         }
 
         // Behaviour
         private void SetTarget(Transform target)
         {
-            currentTarget = target;
-            moveIntention.SetTargetTransform(target);
-        }
-
-        private void SetAnimation(BatAnimations animation, bool value)
-        {
-            if (animator)
-            {
-                animator.SetBool(animation.ToString(), value);
-            }
+            _currentTarget = target;
+            _motorAIController.SetTargetTransform(target);
+            _animatorHandler.TakeOff();
         }
 
         private void GoHome()
         {
-            currentTarget = null;
-            goingHome = true;
-            moveIntention.SetTargetPosition(startingPosition);
+            _currentTarget = null;
+            _goingHome = true;
+            _motorAIController.SetTargetPosition(_homePosition);
         }
     }
 

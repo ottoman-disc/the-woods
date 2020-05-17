@@ -11,6 +11,7 @@ namespace OttomanDisk
     public class GameManager : MonoBehaviourPunCallbacks
     {
         public GameObject playerPrefab;
+        [SerializeField] private Transform playerStartingTransform;
         private Vector3 _playerStartingPos = Vector3.zero;
 
         // Monobehaviour Methods
@@ -64,6 +65,8 @@ namespace OttomanDisk
                 Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
                 return;
             }
+
+            if (playerStartingTransform != null) _playerStartingPos = playerStartingTransform.position;
 
             if (PhotonNetwork.IsConnected)
             {

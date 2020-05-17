@@ -11,14 +11,17 @@ GameObject:
   - component: {fileID: 453829679860249807}
   - component: {fileID: 6931217314602642763}
   - component: {fileID: 5635842418854405775}
-  - component: {fileID: 2653692738944909643}
+  - component: {fileID: 3970471235524840637}
   - component: {fileID: 453829679860249800}
+  - component: {fileID: 6460141134225624878}
   - component: {fileID: 453829679860249801}
   - component: {fileID: 2850233795744238324}
+  - component: {fileID: 2653692738944909643}
   - component: {fileID: 6667583382856144728}
-  - component: {fileID: 3970471235524840637}
+  - component: {fileID: 5779698410954018135}
+  - component: {fileID: 5865029006698169504}
   m_Layer: 0
-  m_Name: Bat_v1
+  m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,18 +66,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
---- !u!114 &2653692738944909643
-MonoBehaviour:
+--- !u!135 &3970471235524840637
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453829679860249802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46789728cf8da3540913d696c89e048d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &453829679860249800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,6 +130,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6460141134225624878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453829679860249802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cd0569e3eb79f4d8cb62208542eab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &453829679860249801
 Animator:
   serializedVersion: 3
@@ -159,8 +175,20 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2653692738944909643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453829679860249802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46789728cf8da3540913d696c89e048d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6667583382856144728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +202,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!135 &3970471235524840637
+--- !u!114 &5779698410954018135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453829679860249802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a83404dc2baa54a8ec70d0a2199d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &5865029006698169504
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,8 +222,8 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453829679860249802}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
