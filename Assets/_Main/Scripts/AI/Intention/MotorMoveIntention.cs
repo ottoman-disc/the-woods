@@ -4,7 +4,7 @@ namespace OttomanDisc.AI
 {
     public class MotorMoveIntention : MonoBehaviour, IMoveIntention
     {
-        [SerializeField] MotorXZ motor;
+        [SerializeField] Motor motor;
 
         public void Move(Vector3 direction)
         {
