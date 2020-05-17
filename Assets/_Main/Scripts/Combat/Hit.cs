@@ -6,6 +6,8 @@ namespace OttomanDisc
 {
     public class Hit : MonoBehaviour, IDamage
     {
+        [SerializeField] LayerMask layerMask;
+
         [SerializeField] private float range = 0.5f;
 
         private Transform _thisTransform;
@@ -24,12 +26,10 @@ namespace OttomanDisc
 
         public void Attack()
         {
-            Collider[] hitColliders = Physics.OverlapSphere(_thisTransform.position, range);
+            Collider[] hitColliders = Physics.OverlapSphere(_thisTransform.position, range, layerMask, QueryTriggerInteraction.Ignore);
 
             foreach (Collider col in hitColliders)
             {
-                Debug.Log("HIT! " + col.name);
-
                 IDamageable damageable = col.GetComponent<IDamageable>();
                 if (damageable != null) damageable.DamageReceived(this);
             }
