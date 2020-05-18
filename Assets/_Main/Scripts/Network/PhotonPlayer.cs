@@ -1,9 +1,7 @@
-﻿using Cinemachine;
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace OttomanDisc
+namespace OttomanDisc.Network
 {
     public class PhotonPlayer : MonoBehaviourPun
     {
