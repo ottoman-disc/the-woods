@@ -1,5 +1,4 @@
-﻿
-namespace OttomanDisc
+﻿namespace OttomanDisc
 {
     public interface IDamage
     {

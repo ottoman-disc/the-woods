@@ -1,6 +1,6 @@
 ﻿using OttomanDisc.StateMachine;
 
-namespace OttomanDisc
+namespace OttomanDisc.AI
 {
     public class EntityStateManager : StateManager
     {

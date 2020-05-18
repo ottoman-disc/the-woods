@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OttomanDisc
+namespace OttomanDisc.Network
 {
     public class PhotonTaker : MonoBehaviour
     {

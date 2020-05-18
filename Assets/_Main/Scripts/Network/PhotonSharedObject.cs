@@ -1,7 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-namespace OttomanDisc
+namespace OttomanDisc.Network
 {
     [RequireComponent(typeof(PhotonView))]
     public class PhotonSharedObject : MonoBehaviour

@@ -2,7 +2,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 
-namespace OttomanDisk
+namespace OttomanDisc
 {
     // Handles launching a new game from the title screen using PUN
     // PUN library provides MonoBehaviourCallbacks class to simplyfy implementing callbacks
