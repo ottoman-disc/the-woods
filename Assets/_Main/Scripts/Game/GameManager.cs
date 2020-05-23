@@ -22,7 +22,7 @@ namespace OttomanDisc
 
         }
 
-        // MonobehaviourPunCallbacks Methods
+        // MonobehaviourPunCallbacks Methods.
         public override void OnLeftRoom()
         {
             SceneManager.LoadScene(0);
