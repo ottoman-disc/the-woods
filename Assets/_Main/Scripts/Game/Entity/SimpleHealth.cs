@@ -21,7 +21,7 @@ namespace OttomanDisc
             health -= damageValue.Damage;
             damageEffect.Spawn(_transform.position);
 
-            if (health == 0) Die();
+            if (health <= 0) Die();
         }
 
         public void Die()
