@@ -6,19 +6,9 @@ namespace OttomanDisc.Art
     {
         private static readonly int FlyingParameter = Animator.StringToHash("isFlying");
 
-        // private IMotor motor;
-
         protected override void Awake()
         {
             base.Awake();
-
-            // motor = GetComponentInParent<IMotor>();
-        }
-
-        private void Update()
-        {
-            // if (motor.IsMoving) TakeOff();
-            // else Land();
         }
 
         public void Land() => animator.SetBool(FlyingParameter, false);
