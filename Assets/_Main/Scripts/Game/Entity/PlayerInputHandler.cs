@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using OttomanDisc.Utility;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace OttomanDisc
@@ -8,15 +10,13 @@ namespace OttomanDisc
     {
         private PlayerInputActions inputActions;
 
-        private IMotor moter;
-        private SphereAttack sphereAttack; // later we should probably interface this up so we can swap 'weapons' out
+        [SerializeField] private Vector3Event Move;
+        [SerializeField] private UnityEvent Stop;
+        [SerializeField] private UnityEvent Attack;
 
         private void Awake()
         {
             inputActions = new PlayerInputActions();
-
-            moter = GetComponent<IMotor>();
-            sphereAttack = GetComponent<SphereAttack>();
         }
 
         private void OnEnable()
@@ -37,17 +37,17 @@ namespace OttomanDisc
                 y = 0,
                 z = direction2D.y
             };
-            moter.Move(direction);
+            Move.Invoke(direction);
         }
 
         private void OnMoveStop(InputAction.CallbackContext context)
         {
-            moter.Stop();
+            Stop.Invoke();
         }
 
         private void OnAttack(InputAction.CallbackContext context)
         {
-            sphereAttack.Attack();
+            Attack.Invoke();
         }
 
         private void OnDisable()

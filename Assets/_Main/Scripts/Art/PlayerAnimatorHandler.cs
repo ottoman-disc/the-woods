@@ -5,48 +5,13 @@ namespace OttomanDisc.Art
 {
     public class PlayerAnimatorHandler : AnimatorHandler
     {
-        private PlayerInputActions inputActions;
-
-        protected override void Awake()
+        public void Move(Vector3 direction)
         {
-            base.Awake();
-            inputActions = new PlayerInputActions();
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.z);
         }
 
-        private void OnEnable()
-        {
-            inputActions.Game.Enable();
-            inputActions.Game.Move.performed += OnMove;
-            inputActions.Game.Move.canceled += OnMoveStop;
-            inputActions.Game.Attack.performed += OnAttack;
-        }
-
-        private void OnDisable()
-        {
-            inputActions.Game.Enable();
-            inputActions.Game.Move.performed -= OnMove;
-            inputActions.Game.Move.canceled -= OnMoveStop;
-            inputActions.Game.Attack.performed -= OnAttack;
-        }
-
-        private void Update()
-        {
-
-        }
-
-        private void OnMove(InputAction.CallbackContext context)
-        {
-            var direction2D = context.ReadValue<Vector2>();
-            animator.SetFloat("Horizontal", direction2D.x);
-            animator.SetFloat("Vertical", direction2D.y);
-        }
-
-        private void OnMoveStop(InputAction.CallbackContext context)
-        {
-            // start and idle or slide animation maybe??
-        }
-
-        private void OnAttack(InputAction.CallbackContext context)
+        public void Attack()
         {
             animator.SetTrigger("AttackTrigger");
         }
