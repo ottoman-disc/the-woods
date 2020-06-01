@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6460141134225624878}
   - component: {fileID: 453829679860249801}
   - component: {fileID: 453829679860249800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb280a297263aa54e952409f8a230417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: 0, z: 0}
   speed: 1
 --- !u!54 &2850233795744238324
 Rigidbody:

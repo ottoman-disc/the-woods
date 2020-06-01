@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3638634809124427837}
   - component: {fileID: 3638634809124427842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,8 @@ GameObject:
   - component: {fileID: 3638634810258171503}
   - component: {fileID: 3638634810258171497}
   - component: {fileID: 3638634810258171502}
-  m_Layer: 0
+  - component: {fileID: 4286833910512346464}
+  m_Layer: 9
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,3 +1471,16 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!65 &4286833910512346464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638634810258171500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 69.5, y: 2, z: 55}
+  m_Center: {x: 1.25, y: -1, z: -2.5}

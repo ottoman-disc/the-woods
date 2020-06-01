@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb280a297263aa54e952409f8a230417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: 0, z: 0}
   speed: 2
 --- !u!114 &4046416735582299173
 MonoBehaviour:
@@ -308,7 +307,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  range: 0.8
+  range: 0.51
 --- !u!135 &4235951594834446823
 SphereCollider:
   m_ObjectHideFlags: 0
