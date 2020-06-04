@@ -44,7 +44,6 @@ namespace OttomanDisc.Art
 
         private void OnMoveStop(InputAction.CallbackContext context)
         {
-            // start and idle or slide animation maybe??
             animator.SetFloat("Horizontal", 0f);
             animator.SetFloat("Vertical", 0f);
         }
