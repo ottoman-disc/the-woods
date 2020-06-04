@@ -39,11 +39,14 @@ namespace OttomanDisc.Art
             var direction2D = context.ReadValue<Vector2>();
             animator.SetFloat("Horizontal", direction2D.x);
             animator.SetFloat("Vertical", direction2D.y);
+            this.FlipHorizontal(direction2D.x);
         }
 
         private void OnMoveStop(InputAction.CallbackContext context)
         {
             // start and idle or slide animation maybe??
+            animator.SetFloat("Horizontal", 0f);
+            animator.SetFloat("Vertical", 0f);
         }
 
         private void OnAttack(InputAction.CallbackContext context)
