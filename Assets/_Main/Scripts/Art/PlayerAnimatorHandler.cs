@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace OttomanDisc.Art
@@ -8,9 +9,17 @@ namespace OttomanDisc.Art
         [SerializeField]
         private GameObject arms;
 
+        [SerializeField]
+        private float bowAimRange = 30f; // the range of motion the bow may make whilst aiming
+
+        [SerializeField]
+        private float bowIdleAfterSeconds = 3f; // how long after shooting idle animation should be triggered
+
         private Animator armsAnimator;
         private SpriteRenderer armsSpriteRenderer;
         private PlayerInputActions inputActions;
+        private bool aiming = false; // flags that arms should be rotated to aim
+        private bool nocked = false; // flags that player intends to release an arrow
 
         protected override void Awake()
         {
@@ -32,7 +41,8 @@ namespace OttomanDisc.Art
             inputActions.Game.Enable();
             inputActions.Game.Move.performed += OnMove;
             inputActions.Game.Move.canceled += OnMoveStop;
-            inputActions.Game.Attack.performed += OnAttack;
+            inputActions.Game.Attack.performed += Nock;
+            inputActions.Game.Attack.canceled += Release;
         }
 
         private void OnDisable()
@@ -40,33 +50,72 @@ namespace OttomanDisc.Art
             inputActions.Game.Enable();
             inputActions.Game.Move.performed -= OnMove;
             inputActions.Game.Move.canceled -= OnMoveStop;
-            inputActions.Game.Attack.performed -= OnAttack;
+            inputActions.Game.Attack.performed -= Nock;
+            inputActions.Game.Attack.canceled -= Release;
         }
 
         private void Update()
         {
+            if (aiming)
+            {
+                MouseAim();
+            }
+        }
 
+        private void MouseAim()
+        {
+            Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            float angleClamped = Mathf.Clamp(angle, -bowAimRange, bowAimRange);
+            RotateArms(angleClamped);
+        }
+
+        private void RotateArms(float angle)
+        {
+            armsSpriteRenderer.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         private void OnMove(InputAction.CallbackContext context)
         {
             var direction2D = context.ReadValue<Vector2>();
-            animator.SetFloat("Horizontal", direction2D.x);
-            animator.SetFloat("Vertical", direction2D.y);
-            armsAnimator.SetFloat("Horizontal", direction2D.x);
-            armsAnimator.SetFloat("Vertical", direction2D.y);
+            animator.SetBool("Walking", true);
+            armsAnimator.SetBool("Walking", true);
             this.FlipHorizontal(direction2D.x);
         }
 
         private void OnMoveStop(InputAction.CallbackContext context)
         {
-            animator.SetFloat("Horizontal", 0f);
-            animator.SetFloat("Vertical", 0f);
+            animator.SetBool("Walking", false);
+            armsAnimator.SetBool("Walking", false);
         }
 
-        private void OnAttack(InputAction.CallbackContext context)
+        private void Nock(InputAction.CallbackContext context)
         {
-            animator.SetTrigger("AttackTrigger");
+            animator.SetTrigger("Nock");
+            armsAnimator.SetTrigger("Nock");
+            aiming = nocked = true;
+            StopAllCoroutines(); // prevents overlapped coroutines interupting animation
         }
+
+        private void Release(InputAction.CallbackContext context)
+        {
+            animator.SetTrigger("Release");
+            armsAnimator.SetTrigger("Release");
+            nocked = false;
+            StartCoroutine("BowIdle");
+        }
+
+        // resets player to idle after three seconds if not nocked
+        IEnumerator BowIdle()
+        {
+            yield return new WaitForSeconds(bowIdleAfterSeconds);
+            if (!nocked)
+            {
+                aiming = false;
+                RotateArms(0f);
+                armsAnimator.Play("player-arms-idle", -1);
+            }
+        }
+
     }
 }
