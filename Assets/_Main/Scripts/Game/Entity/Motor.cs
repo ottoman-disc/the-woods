@@ -8,7 +8,7 @@ namespace OttomanDisc
         private Rigidbody _rb;
         private Vector3 _direction;
         private bool moving = false;
-        [SerializeField] [Range(0f, 3f)] private float speed = 1f;
+        [SerializeField] [Range(0f, 10f)] private float speed = 1f;
 
         public bool IsMoving { get { return moving; } }
 

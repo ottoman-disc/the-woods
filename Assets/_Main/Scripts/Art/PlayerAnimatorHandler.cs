@@ -15,11 +15,17 @@ namespace OttomanDisc.Art
         [SerializeField]
         private float bowIdleAfterSeconds = 3f; // how long after shooting idle animation should be triggered
 
+        [SerializeField]
+        private GameObject arrowPrefab;
+
         private Animator armsAnimator;
         private SpriteRenderer armsSpriteRenderer;
         private PlayerInputActions inputActions;
         private bool aiming = false; // flags that arms should be rotated to aim
         private bool nocked = false; // flags that player intends to release an arrow
+        private GameObject nockedArrow;
+        private SpriteRenderer nockedArrowSpriteRenderer;
+        private Arrow nockedArrowScript;
 
         protected override void Awake()
         {
@@ -34,6 +40,7 @@ namespace OttomanDisc.Art
             var flip = x < 0 ? true : false;
             spriteRenderer.flipX = flip;
             armsSpriteRenderer.flipX = flip;
+            nockedArrowSpriteRenderer.flipX = flip;
         }
 
         private void OnEnable()
@@ -91,16 +98,18 @@ namespace OttomanDisc.Art
 
         private void Nock(InputAction.CallbackContext context)
         {
-            animator.SetTrigger("Nock");
             armsAnimator.SetTrigger("Nock");
+            nockedArrow = Instantiate(arrowPrefab, this.transform.position, this.transform.rotation, this.transform);
+            nockedArrowScript = nockedArrow.GetComponent<Arrow>();
+            nockedArrowSpriteRenderer = nockedArrow.GetComponent<SpriteRenderer>();
             aiming = nocked = true;
             StopAllCoroutines(); // prevents overlapped coroutines interupting animation
         }
 
         private void Release(InputAction.CallbackContext context)
         {
-            animator.SetTrigger("Release");
             armsAnimator.SetTrigger("Release");
+            nockedArrowScript.Loose();
             nocked = false;
             StartCoroutine("BowIdle");
         }
